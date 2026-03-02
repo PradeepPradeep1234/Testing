@@ -6,6 +6,13 @@
     <title>B SQUARE Hydro Tech | Pure Water Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
+        html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
         /* --- CORE STYLES --- */
         :root {
             --brand-blue: #007bff;
@@ -24,7 +31,7 @@
 
         /* --- NAVIGATION --- */
         nav { 
-            position: fixed; top: 0; width: 100%; padding: 15px 5%; 
+            position: fixed; top: 0; left: 0; right: 0; padding: 15px 5%; 
             display: flex; justify-content: space-between; align-items: center; 
             background: rgba(255, 255, 255, 0.95); z-index: 3000; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);
@@ -61,10 +68,73 @@
         .btn-outline { border: 2px solid white; color: white; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
 
-        .ocean { height: 80px; width: 100%; position: absolute; bottom: 0; left: 0; background: #fff; z-index: 5;}
-        .wave { background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; position: absolute; top: -198px; width: 6400px; height: 198px; animation: wave 10s infinite linear; }
-        @keyframes wave { 0% { margin-left: 0; } 100% { margin-left: -1600px; } }
+ /* ===== CLEAN PROFESSIONAL WATER ===== */
 
+.ocean {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+    z-index: 3;
+}
+
+/* Main Wave */
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg") repeat-x;
+    background-size: 1400px 110px;
+    animation: waveMove 14s linear infinite;
+    opacity: 0.6;
+}
+
+/* Second Soft Wave */
+.wave:nth-child(2) {
+    bottom: 8px;
+    animation: waveMoveReverse 20s linear infinite;
+    opacity: 0.35;
+}
+
+/* Desktop Animation */
+@keyframes waveMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-1400px); }
+}
+
+@keyframes waveMoveReverse {
+    from { transform: translateX(-1400px); }
+    to { transform: translateX(0); }
+}
+
+/* ===== MOBILE OPTIMIZED VERSION ===== */
+@media (max-width: 600px) {
+
+    .ocean {
+        height: 65px;
+    }
+
+    .wave {
+        width: 300%;
+        background-size: 900px 65px;
+        animation: waveMobile 18s linear infinite;
+        opacity: 0.4;
+    }
+
+    .wave:nth-child(2) {
+        bottom: 5px;
+        opacity: 0.25;
+    }
+
+    @keyframes waveMobile {
+        from { transform: translateX(0); }
+        to { transform: translateX(-900px); }
+    }
+}
         /* --- SECTIONS --- */
         .section { padding: var(--section-padding); text-align: center; }
         .section-title { color: var(--brand-blue); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.85rem; margin-bottom: 15px; display: block; }
@@ -1976,6 +2046,163 @@
             padding: 30px;
         }
     }
+    .bsq-water-science {
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #f4fbff, #e3f5ff);
+    font-family: 'Poppins', sans-serif;
+}
+
+.bsq-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.bsq-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.bsq-title h2 {
+    font-size: 34px;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.bsq-title p {
+    color: #555;
+    font-size: 16px;
+}
+
+/* Spectrum */
+.bsq-spectrum-wrapper {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.bsq-spectrum {
+    display: flex;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.zone {
+    flex: 1;
+    padding: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.acidic { background: #ff4d6d; }
+.neutral { background: #ffaa00; }
+.alkaline { background: #06d6a0; }
+
+.bsq-spectrum-note {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Cards */
+.bsq-parameter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 70px;
+}
+
+.bsq-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.bsq-card:hover {
+    transform: translateY(-8px);
+}
+
+.bsq-card h4 {
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+/* Body Section */
+.bsq-body-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 70px;
+}
+
+.bsq-body-text ul {
+    margin-top: 15px;
+    padding-left: 18px;
+}
+
+.body-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00b4d8, #0077b6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Distribution */
+.bsq-distribution {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.distribution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.dist-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+
+/* Quality */
+.bsq-quality {
+    background: #0077b6;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .bsq-parameter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bsq-body-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .distribution-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .bsq-parameter-grid,
+    .distribution-grid {
+        grid-template-columns: 1fr;
+    }
+}
      /* Unique Style for Quote Section */
 .premium-quote-section {
   padding: 60px 20px;
@@ -2306,7 +2533,278 @@
             height: 48px;
         }
     }
+.bsq-quality-section {
+    padding: 90px 20px;
+    background: linear-gradient(180deg, #f8fdff, #e6f4ff);
+    font-family: 'Poppins', sans-serif;
+}
 
+.quality-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+.quality-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.quality-header h2 {
+    font-size: 34px;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+.quality-header p {
+    font-size: 16px;
+    color: #555;
+    max-width: 750px;
+    margin: auto;
+}
+
+/* COUNTERS */
+.quality-counters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 70px;
+}
+
+.counter-box {
+    background: #ffffff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.counter-box h3 {
+    font-size: 32px;
+    color: #0077b6;
+    margin-bottom: 8px;
+}
+
+.counter-box p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* QUALITY CARDS */
+.quality-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+.quality-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.quality-card:hover {
+    transform: translateY(-8px);
+}
+
+.badge {
+    width: 60px;
+    height: 60px;
+    background: #0077b6;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.quality-card h3 {
+    font-size: 18px;
+    color: #023e8a;
+    margin-bottom: 12px;
+}
+
+.quality-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* FOOTER MESSAGE */
+.quality-footer {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+    .quality-counters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quality-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .quality-counters {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-header h2 {
+        font-size: 26px;
+    }
+}
+.bsq-faq-ultimate {
+    position: relative;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #eaf6ff, #f4fbff);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* WATER WAVE BACKGROUND */
+
+.bsq-faq-ultimate::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 120px;
+    background: url('https://svgshare.com/i/12kL.svg');
+    background-size: cover;
+    animation: waveMove 8s linear infinite;
+    opacity: 0.2;
+}
+
+@keyframes waveMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.faq-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-header h2 {
+    font-size: 36px;
+    color: #023e8a;
+}
+
+.faq-header p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#faqSearch {
+    padding: 10px 15px;
+    width: 280px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+/* GRID */
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* CARD */
+
+.faq-item {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border-left: 5px solid #0077b6;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #023e8a;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+    padding: 0 20px 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* ACTIVE */
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+.faq-item.active .icon {
+    transform: rotate(45deg);
+}
+
+/* FLOATING BUTTON */
+
+.faq-floating-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-header h2 {
+        font-size: 26px;
+    }
+}
 </style>
 </head>
 <body>
@@ -2314,7 +2812,7 @@
 <nav>
     <div class="logo-container">
         
-          <img src="c:\Users\dell\OneDrive\Desktop\brocher\logo.png.jpeg" alt="Logo" style="width: 8%; height: 8%; object-fit: contain;">
+          <img src="logo.png.jpeg" alt="Logo" style="width: 8%; height: 8%; object-fit: contain;">
         <span class="brand-name">B SQUARE Hydro Tech</span>
     </div>
     
@@ -2341,7 +2839,7 @@
     <a href="#diagnosis">Price</a>
     <a href="#quote">Quote</a>
     <a href="#ro-purifier">ROPurifier</a>
-    <a href="#contact">contact</a>
+    <a href="#contact">Contact</a>
 </div>
 
 <section class="hero" id="home">
@@ -2354,7 +2852,11 @@
             <a href="#redox" class="btn btn-outline">See Technology</a>
         </div>
     </div>
-    <div class="ocean"><div class="wave"></div></div>
+   <div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+</div>
+</div>
 </section>
 
 <section class="section" id="about">
@@ -2422,7 +2924,7 @@
     <h2 class="section-heading">Why Move Beyond Traditional Softeners?</h2>
     <div class="diag-container">
         <div class="diag-card problem-card">
-            <div class="badge" style="background: #c53030;">TRADITIONAL</div>
+            
             <div class="diag-header problem-header"><span class="diag-icon">⚠️</span> The Problem: Salt Softeners</div>
             <ul class="diag-list">
                 <li class="diag-item"><span class="diag-icon">❌</span><span><strong>Chemical Use:</strong> Requires constant salt refills.</span></li>
@@ -2431,7 +2933,7 @@
             </ul>
         </div>
         <div class="diag-card solution-card">
-            <div class="badge" style="background: var(--brand-blue);">ADVANCED</div>
+            
             <div class="diag-header solution-header"><span class="diag-icon">✅</span> B SQUARE Solution</div>
             <ul class="diag-list">
                 <li class="diag-item"><span class="diag-icon">💎</span><span><strong>Salt Free:</strong> 100% electronic mineral disruption.</span></li>
@@ -2517,57 +3019,7 @@
         </div>
     </div>
 </section>
-<section class="section tech-innovation-modern" id="innovations">
-    <span class="section-title" style="color: var(--accent-blue);">Future-Ready</span>
-    <h2 class="section-heading" style="color: var(--brand-dark);">Innovation Hub</h2>
 
-    <div class="innovation-container">
-        <div class="glass-card main-tech">
-            <div class="card-tag">Smart Tech</div>
-            <h3>Technology Innovations</h3>
-            <p>We leverage IoT-enabled water monitoring and AI-driven filtration to ensure real-time purity tracking.</p>
-            
-            <div class="tech-icons-row">
-                <div class="t-icon"><span>📡</span><p>Smart Sensors</p></div>
-                <div class="t-icon"><span>🔬</span><p>Nano Membranes</p></div>
-                <div class="t-icon"><span>♻️</span><p>ZLD Systems</p></div>
-            </div>
-        </div>
-
-        <div class="glass-card expansion-card">
-            <h3>Market Expansion</h3>
-            <div class="stat-flex">
-                <div class="stat-box">
-                    <span class="big-num">15+</span>
-                    <p>States Reached</p>
-                </div>
-                <div class="stat-box">
-                    <span class="big-num">500+</span>
-                    <p>Projects Done</p>
-                </div>
-            </div>
-            <div class="scaling-line">
-                <div class="scaling-fill"></div>
-            </div>
-            <p class="small-text">Scaling local to international industrial plants.</p>
-        </div>
-
-        <div class="glass-card quality-card">
-            <div class="quality-stamp">ISO</div>
-            <h3>Quality Commitment</h3>
-            <p>ISO Certified processes and premium grade components used everywhere.</p>
-        </div>
-
-        <div class="glass-card trust-card">
-            <div class="star-rating">★★★★★</div>
-            <h3>Trusted Service</h3>
-            <p>Over 500+ satisfied industrial and domestic clients globally.</p>
-            <div class="status-indicator">
-                <span class="blink-dot"></span> Active Monitoring Enabled
-            </div>
-        </div>
-    </div>
-</section>
 <section class="section expertise-modern" id="expertise">
     <span class="section-title">Our Expertise</span>
     <h2 class="section-heading">Innovative Water Treatment Services</h2>
@@ -2615,7 +3067,7 @@
 
         <div class="expertise-image-side">
             <div class="image-wrapper">
-                <img src="c:\Users\dell\OneDrive\Desktop\brocher\f52356cb-3170-409a-a600-93b1d3356618.jpg" alt="SSK Hydro Expertise">
+                <img src="7ed6d055-70f8-4a9d-b9e5-d6953560751a.jpg" alt="SSK Hydro Expertise">
                 <div class="image-overlay-card">
                     <strong>100% Efficiency</strong>
                     <p>Guaranteed Performance</p>
@@ -2733,6 +3185,170 @@
         </div>
     </div>
 </section>
+<section class="bsq-quality-section">
+
+    <div class="quality-container">
+
+        <!-- HEADER -->
+        <div class="quality-header">
+            <h2>Certifications & Quality Standards</h2>
+            <p>B Square Hydro Tech follows structured engineering practices and quality-focused processes to deliver reliable and performance-driven water treatment solutions.</p>
+        </div>
+
+        <!-- TRUST HIGHLIGHTS (No Fake Years) -->
+        <div class="quality-counters">
+            <div class="counter-box">
+                <h3>500+</h3>
+                <p>System Components Tested</p>
+            </div>
+            <div class="counter-box">
+                <h3>100%</h3>
+                <p>Quality Inspection Before Delivery</p>
+            </div>
+            <div class="counter-box">
+                <h3>Custom</h3>
+                <p>Engineered System Design</p>
+            </div>
+            <div class="counter-box">
+                <h3>24/7</h3>
+                <p>Technical Support</p>
+            </div>
+        </div>
+
+        <!-- QUALITY CARDS -->
+        <div class="quality-grid">
+
+            <div class="quality-card">
+                <div class="badge">ISO</div>
+                <h3>Structured Quality Management</h3>
+                <p>System design and execution follow organized quality control procedures to ensure consistent performance.</p>
+            </div>
+
+            <div class="quality-card">
+                <div class="badge">STD</div>
+                <h3>Safe Drinking Water Compliance</h3>
+                <p>Purification parameters are maintained within recognized safe drinking water guidelines.</p>
+            </div>
+
+            <div class="quality-card">
+                <div class="badge">ENV</div>
+                <h3>Environmental Responsibility</h3>
+                <p>Systems engineered to reduce water rejection and promote sustainable water usage.</p>
+            </div>
+
+            <div class="quality-card">
+                <div class="badge">SAFE</div>
+                <h3>Industrial Safety Standards</h3>
+                <p>Installations follow structured safety practices for reliable and stable operation.</p>
+            </div>
+
+        </div>
+
+        <!-- FINAL MESSAGE -->
+        <div class="quality-footer">
+            <p>As a growing water technology company, B Square Hydro Tech is committed to delivering safe, efficient and future-ready purification systems.</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="bsq-faq-ultimate" id="faq">
+
+    <!-- Floating FAQ Button -->
+    
+
+    <div class="faq-container">
+
+        <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about our water treatment solutions.</p>
+
+            <input type="text" id="faqSearch" placeholder="Search your question..." onkeyup="filterFAQ()">
+        </div>
+
+        <div class="faq-grid">
+
+            <!-- ITEM -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    What type of water treatment systems do you provide?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We provide RO Plants, Water Softeners, ETP, STP and customized industrial water treatment systems.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you conduct site inspection before installation?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, we evaluate site conditions, water quality and capacity before finalizing the solution.</p>
+                </div>
+            </div>
+             <div class="faq-item">
+                <button class="faq-question">
+                    How do I choose the right water treatment system?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our team analyzes your water quality report, usage capacity and site requirements before recommending the most suitable and cost-effective system.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                   Do your systems help in reducing water wastage?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, our solutions are designed to optimize water recovery and improve operational efficiency while minimizing waste.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                   What quality standards do you follow?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We use high-grade components and structured quality checks to ensure safety, durability and reliable system performance.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                   How can I request a quotation?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You can contact us through our website contact form or call our support team for consultation and quotation.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can your systems treat high TDS water?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, our systems are designed to effectively treat high TDS and hard water conditions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you provide after-sales support?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We provide service guidance and support to ensure long-term system performance.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 <section class="section product-showcase">
     <div class="container">
         <div class="text-center-header">
@@ -2744,7 +3360,7 @@
         <div class="product-flex-grid">
             <div class="product-item">
                 <div class="img-container">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\d256f51b-c98f-49dc-a934-594418171a8a.jpg" alt="Scale Remover">
+                    <img src="d256f51b-c98f-49dc-a934-594418171a8a.jpg" alt="Scale Remover">
                     <div class="product-tag">Best Seller</div>
                 </div>
                 <div class="product-details">
@@ -2756,7 +3372,7 @@
 
             <div class="product-item">
                 <div class="img-container">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\c699e037-b0f8-42ed-8e15-27da0e0e6a02.jpg" alt="Water Softener">
+                    <img src="e2fae109-8ad0-44e2-a55a-ae25184b646e.jpg" alt="Water Softener">
                 </div>
                 <div class="product-details">
                     <h3>Water Softener</h3>
@@ -2767,7 +3383,7 @@
 
             <div class="product-item">
                 <div class="img-container">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\5971af94-5867-4a9f-be95-d14fc531734f.jpg" alt="ETP">
+                    <img src="5971af94-5867-4a9f-be95-d14fc531734f.jpg" alt="ETP">
                 </div>
                 <div class="product-details">
                     <h3>ETP</h3>
@@ -2778,7 +3394,7 @@
 
             <div class="product-item">
                 <div class="img-container">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\aa4708bb-1254-4784-a27d-943ea0ebfe6d.jpg" alt="STP">
+                    <img src="etp-stp-plant-new.webp" alt="STP">
                 </div>
                 <div class="product-details">
                     <h3>STP</h3>
@@ -2892,7 +3508,7 @@
         <div class="product-main-card">
             <div class="product-card-inner">
                 <div class="product-img-box">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\d256f51b-c98f-49dc-a934-594418171a8a.jpg" alt="B Square Scale Remover">
+                    <img src="d256f51b-c98f-49dc-a934-594418171a8a.jpg" alt="B Square Scale Remover">
                 </div>
                 <div class="product-info-box">
                     <div class="badge-tech">MMO Titanium Tech</div>
@@ -2992,7 +3608,7 @@
         <div class="product-main-card">
             <div class="product-card-inner">
                 <div class="product-img-box">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\e2fae109-8ad0-44e2-a55a-ae25184b646e.jpg" alt="B Square Water Softener">
+                    <img src="e2fae109-8ad0-44e2-a55a-ae25184b646e.jpg" alt="B Square Water Softener">
                 </div>
                 <div class="product-info-box">
                     <div class="badge-tech">Ion-Exchange Tech</div>
@@ -3014,7 +3630,7 @@
         </div>
 
         <div class="modal-scroll-content">
-            <img src="softener-detail-view.jpg" class="modal-hero-img" alt="Resin Softener Process">
+            <img src="e2fae109-8ad0-44e2-a55a-ae25184b646e.jpg" class="modal-hero-img" alt="Resin Softener Process">
 
             <div class="modal-section">
                 <h4>Water Softener Resin Types</h4>
@@ -3087,7 +3703,7 @@
         <div class="product-main-card">
             <div class="product-card-inner">
                 <div class="product-img-box">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\etp.jpg" alt="B Square ETP STP Plant">
+                    <img src="b660ba92-3df0-4b62-838b-f62dec24f50f.jpg" alt="B Square ETP STP Plant">
                 </div>
                 <div class="product-info-box">
                     <div class="badge-tech">Industrial Grade</div>
@@ -3111,7 +3727,7 @@
         <div class="modal-scroll-content">
             <p class="tech-intro">Our Effluent Treatment Plants (ETP) and Sewage Treatment Plants (STP) are designed to effectively treat industrial wastewater and domestic sewage, ensuring compliance with environmental regulations and enabling reuse.</p>
             
-            <img src="etp-diagram.jpg" class="modal-hero-img" alt="Treatment Plant Process Diagram">
+            <img src="images.jpg" class="modal-hero-img" alt="Treatment Plant Process Diagram">
 
             <div class="modal-section">
                 <h4>Plant Specifications</h4>
@@ -3205,7 +3821,7 @@
         <div class="product-main-card">
             <div class="product-card-inner">
                 <div class="product-img-box">
-                    <img src="c:\Users\dell\OneDrive\Desktop\brocher\ele.jpg" alt="B Square Electro-Chlorinator">
+                    <img src="aa588f90-1eb8-482a-8744-b16e63b97406 - Copy.jpg" alt="B Square Electro-Chlorinator">
                 </div>
                 <div class="product-info-box">
                     <div class="badge-tech">Disinfection Tech</div>
@@ -3414,7 +4030,7 @@
                 <div class="card img-card red-border">
                     <span class="label red-bg">Untreated Water</span>
                     <div class="image-placeholder">
-                        <img src="c:\Users\dell\Downloads\c7f736c3-2807-4df0-ba1d-5addbedfc632.jpg" alt="Untreated Water">
+                        <img src="c7f736c3-2807-4df0-ba1d-5addbedfc632.jpg" alt="Untreated Water">
                     </div>
                 </div>
                 <div class="card data-card red-border">
@@ -3437,7 +4053,7 @@
                 <div class="card img-card green-border">
                     <span class="label green-bg">Treated Water</span>
                     <div class="image-placeholder">
-                        <img src="c:\Users\dell\Downloads\WhatsApp Image 2026-02-15 at 11.33.39 PM.jpeg" alt="Treated Water">
+                        <img src="WhatsApp Image 2026-02-15 at 11.33.39 PM.jpeg" alt="Treated Water">
                     </div>
                 </div>
                 <div class="card data-card green-border">
@@ -3478,7 +4094,7 @@
 
         <div class="tech-grid">
             <div class="tech-visual">
-                <img src="c:\Users\dell\Downloads\WhatsApp Image 2026-02-17 at 12.33.23 AM.jpeg" alt="REDOX Technology Process" class="main-tech-img">
+                <img src="b4026a10-9eed-4050-9a82-bd9a573c193d.jpg" alt="REDOX Technology Process" class="main-tech-img">
                 <div class="floating-benefit">
                     <strong>99%</strong>
                     <span>Scale Reduction</span>
@@ -3519,7 +4135,7 @@
                 </div>
 
                 <div class="download-wrapper">
-                    <a href="c:\Users\dell\OneDrive\Desktop\brocher\broucher.pdf" download class="btn-download">
+                    <a href="broucher.pdf" download class="btn-download">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
                         Download Brochure
                     </a>
@@ -3643,7 +4259,96 @@
         </div>
     </div>
 </section>
+<section class="bsq-water-science">
 
+    <div class="bsq-container">
+
+        <!-- SECTION TITLE -->
+        <div class="bsq-title">
+            <h2>Advanced Water Science by B Square Hydro Tech</h2>
+            <p>Engineered purification systems delivering mineral-balanced, safe and performance-driven water solutions for homes, industries and institutions.</p>
+        </div>
+
+        <!-- PH INFOGRAPHIC STYLE -->
+        <div class="bsq-spectrum-wrapper">
+            <h3>Optimized Drinking Water Range</h3>
+
+            <div class="bsq-spectrum">
+                <div class="zone acidic">Acidic<br><span>0 – 6.9</span></div>
+                <div class="zone neutral">Balanced<br><span>7.0</span></div>
+                <div class="zone alkaline">Healthy Range<br><span>7.2 – 8.5</span></div>
+            </div>
+
+            <p class="bsq-spectrum-note">
+                Our systems maintain water within a safe alkaline-supportive zone to enhance taste, freshness and daily hydration comfort.
+            </p>
+        </div>
+
+        <!-- PARAMETER CARDS -->
+        <div class="bsq-parameter-grid">
+
+            <div class="bsq-card">
+                <h4>TDS Management</h4>
+                <p>Precision-controlled Total Dissolved Solids retention between 100–300 ppm to preserve essential minerals while eliminating contaminants.</p>
+            </div>
+
+            <div class="bsq-card">
+                <h4>pH Stabilization</h4>
+                <p>Advanced mineral cartridge technology helps stabilize water within a physiologically comfortable pH spectrum.</p>
+            </div>
+
+            <div class="bsq-card">
+                <h4>ORP Optimization</h4>
+                <p>Controlled Oxidation Reduction Potential ensures improved water stability and enhanced purity performance.</p>
+            </div>
+
+        </div>
+
+        <!-- HUMAN BODY PH SECTION -->
+        <div class="bsq-body-section">
+
+            <div class="bsq-body-text">
+                <h3>Hydration & Body Balance</h3>
+                <p>Different parts of the human body function at different pH levels. Maintaining mineral-balanced drinking water supports overall hydration efficiency.</p>
+
+                <ul>
+                    <li>Blood Balance: ~7.35 – 7.45</li>
+                    <li>Muscle Activity: Slightly acidic during exertion</li>
+                    <li>Digestive System: Naturally acidic environment</li>
+                    <li>Cellular Function: Requires mineral-rich hydration</li>
+                </ul>
+            </div>
+
+            <div class="bsq-body-visual">
+                <div class="body-circle">H₂O</div>
+            </div>
+
+        </div>
+
+        <!-- WATER DISTRIBUTION STYLE SECTION -->
+        <div class="bsq-distribution">
+
+            <h3>Water Distribution in the Human Body</h3>
+
+            <div class="distribution-grid">
+                <div class="dist-box">Brain ~75%</div>
+                <div class="dist-box">Heart ~73%</div>
+                <div class="dist-box">Muscles ~79%</div>
+                <div class="dist-box">Kidneys ~83%</div>
+                <div class="dist-box">Liver ~70%</div>
+                <div class="dist-box">Bones ~22%</div>
+            </div>
+
+        </div>
+
+        <!-- QUALITY STATEMENT -->
+        <div class="bsq-quality">
+            <h4>Committed to Safe Water Engineering</h4>
+            <p>B Square Hydro Tech integrates multi-stage filtration, membrane technology and mineral enhancement systems to deliver reliable, safe and sustainable water solutions.</p>
+        </div>
+
+    </div>
+</section>
 <section class="solutions-section" id="diagnosis">
     <div class="container">
         <div class="section-header">
@@ -4089,6 +4794,48 @@
         document.getElementById('roCatalogPortal').style.display = 'none';
         document.body.style.overflow = 'auto';
     }
+    document.addEventListener("DOMContentLoaded", function () {
+
+    // Accordion
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(question => {
+        question.addEventListener("click", function () {
+
+            const item = this.parentElement;
+
+            // Close others
+            document.querySelectorAll(".faq-item").forEach(el => {
+                if (el !== item) {
+                    el.classList.remove("active");
+                }
+            });
+
+            // Toggle current
+            item.classList.toggle("active");
+
+        });
+    });
+
+});
+
+// Scroll button
+function scrollToFAQ() {
+    document.getElementById("faq").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// Search filter
+function filterFAQ() {
+    const input = document.getElementById("faqSearch").value.toLowerCase();
+    const items = document.querySelectorAll(".faq-item");
+
+    items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(input) ? "block" : "none";
+    });
+}
 </script>
 
 </body>
