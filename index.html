@@ -19,12 +19,6 @@
   --grad:linear-gradient(135deg,#0a2540 0%,#00526a 100%);
   --shadow:0 8px 40px rgba(0,194,224,.15);
 }
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:#fff;color:#1a2e3a;overflow-x:hidden;}
@@ -195,10 +189,64 @@ section{padding:5rem 0;}
 .section-title{font-size:2.2rem;color:var(--blue);margin-bottom:.5rem;}
 .section-sub{color:var(--gray);font-size:1rem;line-height:1.6;max-width:560px;}
 
+/* ===== PORTRAIT IMAGE FIX ===== */
+img{max-width:100%;height:auto;display:block;object-fit:cover;object-position:center top;}
+.about-img img,.exp-img img,.redox-img img,.manual-img img,.ba-img img,.op-card-img img,.pl-card-img img,.pp-hero img{width:100%;object-fit:cover;object-position:center top;}
+.insta-card img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+
+/* ===== WATER QUALITY ANALYZER ===== */
+.wqa-card{background:rgba(7,24,40,.9);border:1px solid rgba(0,194,224,.25);border-radius:22px;padding:1.8rem;backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,.4);width:100%;max-width:480px;position:relative;}
+.wqa-card::before{content:'';position:absolute;inset:-1px;border-radius:22px;background:linear-gradient(135deg,rgba(0,194,224,.3),transparent 50%,rgba(0,194,224,.1));z-index:-1;pointer-events:none;}
+.wqa-header{margin-bottom:1.4rem;}
+.wqa-title-row{display:flex;align-items:center;gap:.9rem;}
+.wqa-icon{width:42px;height:42px;background:rgba(0,194,224,.12);border:1px solid rgba(0,194,224,.3);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1.1rem;flex-shrink:0;}
+.wqa-title{font-family:'Rajdhani',sans-serif;color:#fff;font-size:1.15rem;font-weight:700;letter-spacing:.5px;}
+.wqa-sub{color:rgba(255,255,255,.4);font-size:.72rem;letter-spacing:.5px;margin-top:.1rem;}
+.wqa-live{margin-left:auto;display:flex;align-items:center;gap:.4rem;background:rgba(0,194,224,.1);border:1px solid rgba(0,194,224,.2);padding:.3rem .7rem;border-radius:20px;color:var(--cyan);font-size:.72rem;font-weight:600;}
+.wqa-dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:pulse 1.5s infinite;}
+.wqa-input-wrap{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.04);border:1px solid rgba(0,194,224,.2);border-radius:12px;padding:.5rem .5rem .5rem .9rem;transition:.3s;margin-bottom:.8rem;}
+.wqa-input-wrap:focus-within{border-color:rgba(0,194,224,.6);background:rgba(0,194,224,.05);box-shadow:0 0 0 3px rgba(0,194,224,.08);}
+.wqa-input-icon{color:rgba(0,194,224,.5);font-size:.85rem;flex-shrink:0;}
+.wqa-input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:.88rem;font-family:'DM Sans',sans-serif;}
+.wqa-input::placeholder{color:rgba(255,255,255,.25);}
+.wqa-btn{background:linear-gradient(135deg,var(--cyan),#0099b8);color:#fff;border:none;padding:.55rem 1.1rem;border-radius:9px;font-family:'Rajdhani',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:.25s;white-space:nowrap;display:flex;align-items:center;gap:.4rem;}
+.wqa-btn:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(0,194,224,.4);}
+.wqa-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.wqa-quick{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.wqa-quick span{font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.5px;}
+.wqa-quick button{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:.72rem;padding:.25rem .65rem;border-radius:20px;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;}
+.wqa-quick button:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,194,224,.08);}
+.wqa-result{min-height:180px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:1.2rem;display:flex;align-items:center;justify-content:center;}
+.wqa-placeholder{text-align:center;color:rgba(255,255,255,.25);}
+.wqa-placeholder i{font-size:2rem;margin-bottom:.7rem;display:block;color:rgba(0,194,224,.25);}
+.wqa-placeholder p{font-size:.8rem;line-height:1.6;}
+.wqa-loading{text-align:center;color:rgba(255,255,255,.5);}
+.wqa-loading i{font-size:1.5rem;color:var(--cyan);animation:spin 1s linear infinite;display:block;margin-bottom:.6rem;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wqa-loading p{font-size:.8rem;}
+.wqa-output{width:100%;}
+.wqa-area-tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,194,224,.1);border:1px solid rgba(0,194,224,.2);color:var(--cyan);font-size:.75rem;padding:.25rem .7rem;border-radius:20px;margin-bottom:.9rem;}
+.wqa-quality-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;padding:.7rem .9rem;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.06);}
+.wqa-quality-label{color:rgba(255,255,255,.5);font-size:.78rem;}
+.wqa-quality-val{font-weight:700;font-size:.9rem;}
+.wqa-quality-val.poor{color:#ff6b6b;}
+.wqa-quality-val.moderate{color:#ffd93d;}
+.wqa-quality-val.good{color:#6bcb77;}
+.wqa-issues{margin-bottom:.9rem;}
+.wqa-issues-title{font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.5rem;}
+.wqa-issue-tag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,100,100,.08);border:1px solid rgba(255,100,100,.2);color:rgba(255,150,150,.8);font-size:.72rem;padding:.2rem .55rem;border-radius:6px;margin:.2rem .2rem 0 0;}
+.wqa-reco{background:rgba(0,194,224,.06);border:1px solid rgba(0,194,224,.15);border-radius:10px;padding:.8rem;}
+.wqa-reco-title{font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.5rem;}
+.wqa-reco-item{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.8);font-size:.8rem;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.wqa-reco-item:last-child{border:none;padding-bottom:0;}
+.wqa-reco-item i{color:var(--cyan);font-size:.75rem;flex-shrink:0;}
+.wqa-footer{display:flex;gap:.6rem;justify-content:center;margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.06);}
+.wqa-fbadge{display:inline-flex;align-items:center;gap:.35rem;background:rgba(0,194,224,.07);border:1px solid rgba(0,194,224,.15);color:rgba(255,255,255,.6);font-size:.72rem;padding:.3rem .75rem;border-radius:20px;}
+.wqa-fbadge i{color:var(--cyan);font-size:.7rem;}
 /* ===== ABOUT ===== */
 #about{background:#fff;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem;}
-.about-img{border-radius:16px;overflow:hidden;position:relative;}
+.about-img{border-radius:16px;overflow:hidden;}
 .about-img img{width:100%;height:380px;object-fit:cover;display:block;}
 .about-badge{position:absolute;bottom:1.5rem;left:1.5rem;background:var(--blue);color:#fff;padding:.7rem 1.2rem;border-radius:10px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:600;}
 .about-badge span{color:var(--cyan);}
@@ -206,6 +254,18 @@ section{padding:5rem 0;}
 .about-check{display:flex;align-items:center;gap:.7rem;font-size:.92rem;color:#2a3f50;}
 .about-check i{color:var(--cyan);font-size:.9rem;}
 
+
+/* MOBILE FIX ADD பண்ணுங்க */
+@media(max-width:768px){
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+  .about-img img{
+    height:auto;
+    object-fit:unset;
+  }
+}
 /* ===== CORE (Foundation/Vision/Mission) ===== */
 #core{background:var(--light);}
 .core-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
@@ -237,6 +297,7 @@ section{padding:5rem 0;}
 .diag-good h4{color:var(--cyan);}
 .diag-box li{list-style:none;padding:.5rem 0;font-size:.88rem;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:.6rem;border-bottom:1px solid rgba(255,255,255,.06);}
 .diag-box li:last-child{border:none;}
+
 /* ===== REACTOR ENGINE ===== */
 #reactor{background:var(--dark);}
 #reactor .section-title{color:#fff;}
@@ -291,7 +352,6 @@ section{padding:5rem 0;}
 .why-icon{font-size:2.2rem;margin-bottom:.9rem;}
 .why-card h4{font-size:1.05rem;color:var(--blue);margin-bottom:.5rem;}
 .why-card p{font-size:.84rem;color:var(--gray);line-height:1.5;}
-
 /* ===== CERTIFICATIONS ===== */
 #certifications{background:#fff;}
 .cert-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem;margin-bottom:3rem;}
@@ -330,7 +390,7 @@ section{padding:5rem 0;}
 .manual-step-info p{font-size:.8rem;color:var(--gray);}
 .manual-step-icon{margin-left:auto;color:var(--cyan);}
 .manual-img{border-radius:16px;overflow:hidden;}
-.manual-img img{width:100%;height:450px;object-fit:cover;display:block;}
+.manual-img img{width:100%;height:auto;object-fit:unset;display:block;}
 .electric-box{background:var(--blue);border-radius:12px;padding:1.5rem;margin-top:1.5rem;}
 .electric-box h4{color:var(--cyan);font-size:1rem;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem;}
 .electric-box li{list-style:none;color:rgba(255,255,255,.7);font-size:.84rem;padding:.35rem 0;display:flex;gap:.5rem;align-items:flex-start;}
@@ -498,206 +558,6 @@ section{padding:5rem 0;}
 .pp-col-box li{list-style:none;font-size:.82rem;color:var(--gray);padding:.2rem 0;display:flex;gap:.4rem;}
 .pp-col-box li::before{content:'✓';color:var(--cyan);}
 
-/* ===== PRODUCT COMPARISON ===== */
-#comparison{
-  background:#f4f7fa;
-  padding:80px 0;
-}
-#comparison .section-title{color:var(--blue);}
-#comparison .section-sub{color:var(--gray);}
-
-/* Filter Tabs */
-.comp-tabs{
-  display:flex;
-  gap:.6rem;
-  margin-top:2rem;
-  flex-wrap:wrap;
-}
-.comp-tab{
-  background:#fff;
-  border:1px solid var(--border);
-  color:var(--gray);
-  padding:.5rem 1.2rem;
-  border-radius:20px;
-  font-size:.85rem;
-  font-weight:600;
-  cursor:pointer;
-  transition:.2s;
-  font-family:'Rajdhani',sans-serif;
-}
-.comp-tab:hover{border-color:var(--cyan);color:var(--cyan);}
-.comp-tab.active{
-  background:var(--cyan);
-  border-color:var(--cyan);
-  color:#fff;
-}
-
-/* Table Wrapper */
-.comp-table-wrap{
-  overflow-x:auto;
-  margin-top:2rem;
-  border-radius:16px;
-  box-shadow:0 8px 32px rgba(7,24,40,.08);
-  border:1px solid var(--border);
-}
-
-/* Table */
-.comp-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:800px;
-  background:#fff;
-}
-
-/* Header */
-.comp-table thead th{
-  background:var(--blue);
-  color:#fff;
-  padding:1.2rem 1rem;
-  text-align:center;
-  font-family:'Rajdhani',sans-serif;
-  font-size:.95rem;
-  font-weight:600;
-  position:relative;
-  vertical-align:top;
-}
-.comp-table thead th.comp-feature-col{
-  text-align:left;
-  width:160px;
-  background:#071828;
-}
-
-/* Highlight column */
-.comp-highlight-col{
-  background:rgba(0,194,224,.06) !important;
-  border-left:2px solid var(--cyan) !important;
-  border-right:2px solid var(--cyan) !important;
-}
-thead .comp-highlight-col{
-  background:linear-gradient(180deg,#0a3555,#071828) !important;
-  border-top:3px solid var(--cyan) !important;
-}
-
-.comp-popular-badge{
-  background:var(--cyan);
-  color:#fff;
-  font-size:.7rem;
-  font-weight:700;
-  padding:.2rem .6rem;
-  border-radius:0 0 8px 8px;
-  position:absolute;
-  top:0;left:50%;
-  transform:translateX(-50%);
-  white-space:nowrap;
-  letter-spacing:.5px;
-}
-
-.comp-th-inner{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:.3rem;
-  padding-top:.5rem;
-}
-.comp-th-icon{font-size:1.5rem;}
-.comp-th-name{font-size:.95rem;font-weight:700;color:#fff;}
-.comp-th-price{font-size:.8rem;color:var(--cyan);}
-.comp-th-tag{
-  font-size:.65rem;
-  padding:.15rem .5rem;
-  border-radius:10px;
-  font-weight:700;
-  letter-spacing:.5px;
-}
-.comp-th-tag.home{background:rgba(34,197,94,.2);color:#22c55e;}
-.comp-th-tag.commercial{background:rgba(251,191,36,.2);color:#f59e0b;}
-.comp-th-tag.industrial{background:rgba(239,68,68,.2);color:#ef4444;}
-
-/* Body rows */
-.comp-table tbody td{
-  padding:.9rem 1rem;
-  text-align:center;
-  font-size:.84rem;
-  color:#2a3f50;
-  border-bottom:1px solid #f0f4f8;
-  transition:.2s;
-}
-.comp-table tbody td.comp-feature-col{
-  text-align:left;
-  font-weight:600;
-  color:var(--blue);
-  background:#fafbfc;
-  font-size:.83rem;
-}
-.comp-table tbody td.comp-feature-col i{
-  color:var(--cyan);
-  margin-right:.4rem;
-  width:16px;
-}
-.comp-row-alt td{background:#fafcff !important;}
-.comp-row-alt .comp-feature-col{background:#f5f7fa !important;}
-.comp-row-alt .comp-highlight-col{background:rgba(0,194,224,.08) !important;}
-
-/* Yes / No / Partial */
-.comp-yes{color:#22c55e;font-weight:700;font-size:.82rem;}
-.comp-no{color:#ef4444;font-weight:700;font-size:.82rem;}
-.comp-partial{color:#f59e0b;font-weight:700;font-size:.82rem;}
-
-/* Rating */
-.comp-rating{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:.3rem;
-  font-size:.82rem;
-  font-weight:600;
-  color:var(--blue);
-}
-.comp-stars{color:#f59e0b;font-size:.8rem;letter-spacing:1px;}
-
-/* Quote buttons */
-.comp-quote-btn{
-  background:#fff;
-  border:1px solid var(--cyan);
-  color:var(--cyan);
-  padding:.45rem 1rem;
-  border-radius:8px;
-  font-family:'Rajdhani',sans-serif;
-  font-size:.85rem;
-  font-weight:700;
-  cursor:pointer;
-  transition:.2s;
-  letter-spacing:.3px;
-}
-.comp-quote-btn:hover{background:var(--cyan);color:#fff;}
-.comp-quote-btn-highlight{
-  background:var(--cyan);
-  color:#fff;
-}
-.comp-quote-btn-highlight:hover{background:#0070a0;}
-
-/* Legend */
-.comp-legend{
-  display:flex;
-  align-items:center;
-  gap:1.5rem;
-  margin-top:1.5rem;
-  padding:1rem 1.2rem;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:10px;
-  width:fit-content;
-  font-size:.82rem;
-  color:var(--gray);
-}
-.comp-legend span{display:flex;align-items:center;gap:.4rem;}
-
-/* Mobile */
-@media(max-width:768px){
-  .comp-tabs{gap:.4rem;}
-  .comp-tab{font-size:.78rem;padding:.4rem .9rem;}
-}
-
 /* ===== LIVE SIMULATION ===== */
 #simulation{background:var(--dark);}
 #simulation .section-title{color:#fff;}
@@ -709,8 +569,8 @@ thead .comp-highlight-col{
 .sim-unit{font-size:.75rem;color:rgba(255,255,255,.4);}
 .before-after{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
 .ba-box{border-radius:14px;overflow:hidden;}
-.ba-img{height:200px;overflow:hidden;position:relative;}
-.ba-img img{width:100%;height:100%;object-fit:cover;}
+.ba-img{height:auto;overflow:hidden;position:relative;}
+.ba-img img{width:100%;height: 320px;object-fit:cover;object-position:center top;display: block;}
 .ba-label{position:absolute;top:1rem;left:1rem;background:rgba(10,37,64,.8);color:#fff;font-size:.8rem;padding:.3rem .8rem;border-radius:6px;font-weight:600;}
 .ba-body{background:rgba(255,255,255,.05);border:1px solid rgba(0,194,224,.1);padding:1.2rem;border-top:none;}
 .ba-body li{list-style:none;font-size:.83rem;color:rgba(255,255,255,.65);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.5rem;}
@@ -718,123 +578,24 @@ thead .comp-highlight-col{
 
 /* ===== REDOX ===== */
 #redox{background:var(--light);}
-.redox-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem;}
+.redox-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem;overflow:hidden;}
 .redox-img{border-radius:16px;overflow:hidden;}
-.redox-img img{width:100%;height:480px;object-fit:cover;display:block;}
+.redox-img img{width:100%;height:auto;object-fit:unset;display:block;}
 .redox-steps{display:grid;gap:1rem;}
-.redox-step{display:flex;gap:1rem;background:#fff;border-radius:12px;padding:1.2rem 1.5rem;border:1px solid var(--border);}
+.redox-step{display:flex;gap:1rem;background:#fff;border-radius:12px;padding:1.2rem 1.5rem;border:1px solid var(--border);min-width:0;}
 .redox-step-num{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:var(--cyan);flex-shrink:0;width:28px;}
 .redox-step-info h5{font-size:.95rem;color:var(--blue);margin-bottom:.3rem;}
-.redox-step-info p{font-size:.83rem;color:var(--gray);line-height:1.5;}
+.redox-step-info p{font-size:.83rem;color:var(--gray);line-height:1.5;word-wrap:break-word;}
 .redox-stat{display:inline-flex;align-items:center;gap:.7rem;background:var(--grad);color:#fff;padding:.7rem 1.2rem;border-radius:10px;margin-bottom:1.5rem;}
 .redox-stat strong{font-family:'Rajdhani',sans-serif;font-size:2rem;color:var(--cyan);}
 .redox-download{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;padding:.7rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;font-family:'Rajdhani',sans-serif;font-size:.95rem;margin-top:1.5rem;transition:.2s;}
 .redox-download:hover{background:var(--teal);}
 
-/* ===== RO PURIFIER ===== */
-#ro-purifier{background:var(--blue);}
-#ro-purifier .section-title{color:#fff;}
-#ro-purifier .section-sub{color:rgba(255,255,255,.6);}
-.ro-intro{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:3rem;}
-.ro-text p{color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:1.5rem;}
-.ro-highlights{display:grid;gap:.8rem;}
-.ro-hl{display:flex;gap:.8rem;align-items:flex-start;}
-.ro-hl-icon{background:rgba(0,194,224,.15);color:var(--cyan);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem;}
-.ro-hl-text h5{color:#fff;font-size:.93rem;margin-bottom:.2rem;}
-.ro-hl-text p{color:rgba(255,255,255,.6);font-size:.82rem;}
-.ro-stages{background:rgba(255,255,255,.06);border:1px solid rgba(0,194,224,.2);border-radius:14px;padding:1.5rem;margin-top:1.5rem;}
-.ro-stages h4{color:var(--cyan);font-size:1rem;margin-bottom:1rem;}
-.ro-stage-flow{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;}
-.ro-stage{background:rgba(0,194,224,.15);border:1px solid rgba(0,194,224,.3);border-radius:8px;padding:.5rem .9rem;font-size:.8rem;color:#fff;text-align:center;}
-.ro-stage-arrow{color:rgba(0,194,224,.5);font-size:.8rem;}
-.ro-btn{background:var(--cyan);color:#fff;border:none;padding:.8rem 2rem;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;letter-spacing:.5px;margin-top:1.5rem;transition:.2s;display:inline-flex;align-items:center;gap:.5rem;}
-.ro-btn:hover{background:#00a8c4;}
+.redox-step-info{min-width:0;}
 
-/* ✅ Intro Image - Portrait Full, No Cut */
-.ro-intro-img-wrap{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:16px;
-  overflow:hidden;
-  background:rgba(255,255,255,0.04);
+@media(max-width:768px){
+  .redox-grid{grid-template-columns:1fr;gap:2rem;}
 }
-.ro-intro-img{
-  width:100%;
-  height:auto;
-  max-height:520px;
-  object-fit:contain;
-  border-radius:16px;
-  display:block;
-}
-
-/* ===== RO PRODUCTS PAGE POPUP ===== */
-#ro-page{display:none;position:fixed;inset:0;background:var(--blue);z-index:8000;overflow-y:auto;}
-#ro-page.show{display:block;}
-.ro-page-nav{background:rgba(255,255,255,.05);border-bottom:1px solid rgba(0,194,224,.15);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);}
-.ro-page-nav .logo{font-family:'Rajdhani',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;}
-.ro-page-nav .logo span{color:var(--cyan);}
-.ro-page-close{background:rgba(255,255,255,.1);border:none;color:#fff;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-size:.9rem;display:flex;align-items:center;gap:.5rem;transition:.2s;}
-.ro-page-close:hover{background:rgba(0,194,224,.2);}
-.ro-page-inner{max-width:1200px;margin:0 auto;padding:3rem 2rem;}
-.ro-page-inner h2{color:#fff;font-size:2rem;margin-bottom:.5rem;}
-.ro-page-inner .sub{color:rgba(255,255,255,.5);margin-bottom:2.5rem;}
-.ro-products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.ro-prod-card{background:rgba(255,255,255,.06);border:1px solid rgba(0,194,224,.15);border-radius:14px;overflow:hidden;transition:.3s;}
-.ro-prod-card:hover{border-color:var(--cyan);transform:translateY(-3px);}
-
-/* ✅ Product Card Image - Portrait Full, No Cut */
-.ro-prod-card-img{
-  position:relative;
-  overflow:hidden;
-  background:rgba(255,255,255,0.04);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:180px;
-}
-.ro-prod-card-img img{
-  width:100%;
-  height:auto;
-  max-height:220px;
-  object-fit:contain;
-  display:block;
-}
-
-.ro-prod-card-body{padding:1.2rem;}
-.ro-prod-card-body h4{color:#fff;font-size:1rem;margin-bottom:.3rem;}
-.ro-prod-card-body p{color:rgba(255,255,255,.5);font-size:.8rem;line-height:1.5;}
-@keyframes scrollLine{0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
-.ro-prod-tag{position:absolute;top:.7rem;left:.7rem;background:var(--cyan);color:#fff;font-size:.7rem;padding:.2rem .6rem;border-radius:4px;font-weight:700;letter-spacing:.5px;}
-.ro-prod-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.4rem;}
-.ro-prod-header h4{color:#fff;font-size:1.05rem;}
-.ro-prod-specs{margin:.8rem 0;border:1px solid rgba(0,194,224,.12);border-radius:8px;overflow:hidden;}
-.ro-spec-row{display:flex;justify-content:space-between;padding:.38rem .7rem;font-size:.75rem;border-bottom:1px solid rgba(255,255,255,.04);}
-.ro-spec-row:last-child{border:none;}
-.ro-spec-row:nth-child(even){background:rgba(255,255,255,.02);}
-.ro-spec-key{color:rgba(255,255,255,.45);}
-.ro-spec-val{color:var(--cyan);font-weight:600;text-align:right;}
-.ro-prod-btn{width:100%;background:rgba(0,194,224,.12);border:1px solid rgba(0,194,224,.3);color:var(--cyan);padding:.55rem;border-radius:7px;font-family:'Rajdhani',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.5rem;}
-.ro-prod-btn:hover{background:var(--cyan);color:#fff;}
-/* ===== WATER SCIENCE ===== */
-#water-science{background:var(--light);}
-.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:3rem;}
-.ws-ph-bar{background:#fff;border-radius:12px;padding:1.5rem;border:1px solid var(--border);margin-bottom:1.5rem;}
-.ws-ph-bar h4{font-size:1rem;color:var(--blue);margin-bottom:1rem;}
-.ph-track{display:flex;height:24px;border-radius:12px;overflow:hidden;margin-bottom:.5rem;}
-.ph-seg{display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff;font-weight:700;}
-.ph-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--gray);}
-.ws-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.ws-stat{background:#fff;border-radius:12px;padding:1.2rem;border:1px solid var(--border);text-align:center;}
-.ws-stat strong{display:block;font-family:'Rajdhani',sans-serif;font-size:1.6rem;color:var(--cyan);}
-.ws-stat span{font-size:.78rem;color:var(--gray);}
-.ws-body-chart{background:#fff;border-radius:12px;padding:1.5rem;border:1px solid var(--border);}
-.ws-body-chart h4{font-size:1rem;color:var(--blue);margin-bottom:1rem;}
-.body-part{display:flex;align-items:center;gap.8rem;margin-bottom:.7rem;gap:.8rem;}
-.body-part-name{width:90px;font-size:.82rem;color:var(--gray);}
-.body-bar-wrap{flex:1;background:var(--light);border-radius:4px;height:12px;overflow:hidden;}
-.body-bar{height:100%;background:linear-gradient(90deg,var(--cyan),var(--teal));border-radius:4px;}
-.body-pct{width:40px;font-size:.8rem;color:var(--blue);font-weight:600;text-align:right;}
 
 /* ===== PROFESSIONAL SOLUTIONS ===== */
 #pro-solutions{background:#fff;}
@@ -850,6 +611,7 @@ thead .comp-highlight-col{
 .pro-card li::before{content:'•';color:var(--cyan);}
 .pro-card-btn{margin-top:1.2rem;width:100%;background:var(--grad);color:#fff;border:none;padding:.75rem;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:.2s;}
 .pro-card-btn:hover{opacity:.88;}
+
 /* ===== VIDEO SOLUTIONS ===== */
 #video-solutions{
   background:#fff;
@@ -1018,148 +780,6 @@ thead .comp-highlight-col{
 @media(max-width:768px){
   .video-grid{grid-template-columns:1fr;}
 }
-/* ===== TESTIMONIALS ===== */
-#testimonials{
-  background:linear-gradient(160deg,#071828 0%,#0d2d4a 100%);
-  padding:80px 0;
-  position:relative;
-  overflow:hidden;
-}
-#testimonials::before{
-  content:'';
-  position:absolute;
-  top:-100px;right:-100px;
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(0,194,224,.1) 0%,transparent 70%);
-  pointer-events:none;
-}
-#testimonials .section-title{color:#fff;}
-#testimonials .section-sub{color:rgba(255,255,255,.55);}
-
-.testi-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.5rem;
-  margin-top:3rem;
-}
-
-.testi-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(0,194,224,.15);
-  border-radius:16px;
-  padding:1.8rem;
-  transition:.3s;
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  gap:.8rem;
-}
-.testi-card:hover{
-  border-color:var(--cyan);
-  background:rgba(0,194,224,.07);
-  transform:translateY(-4px);
-  box-shadow:0 12px 40px rgba(0,194,224,.12);
-}
-
-.testi-quote i{
-  color:var(--cyan);
-  font-size:1.5rem;
-  opacity:.6;
-}
-
-.testi-text{
-  color:rgba(255,255,255,.75);
-  font-size:.88rem;
-  line-height:1.7;
-  flex:1;
-}
-
-.testi-stars{color:#f59e0b;font-size:.85rem;letter-spacing:2px;}
-
-.testi-author{
-  display:flex;
-  align-items:center;
-  gap:.8rem;
-  margin-top:.5rem;
-  border-top:1px solid rgba(255,255,255,.06);
-  padding-top:.9rem;
-}
-
-.testi-avatar{
-  width:42px;height:42px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--cyan),#0070a0);
-  color:#fff;
-  font-size:.85rem;
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  font-family:'Rajdhani',sans-serif;
-}
-
-.testi-info{flex:1;}
-.testi-info h5{
-  color:#fff;
-  font-size:.9rem;
-  font-weight:600;
-  margin-bottom:.1rem;
-}
-.testi-info span{
-  color:rgba(255,255,255,.4);
-  font-size:.75rem;
-}
-
-.testi-badge{
-  color:var(--cyan);
-  font-size:.7rem;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  gap:.3rem;
-  white-space:nowrap;
-}
-
-/* Stats bar */
-.testi-stats{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:0;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(0,194,224,.15);
-  border-radius:16px;
-  margin-top:3rem;
-  padding:2rem;
-}
-.testi-stat{
-  flex:1;
-  text-align:center;
-}
-.testi-stat h3{
-  color:var(--cyan);
-  font-family:'Rajdhani',sans-serif;
-  font-size:2rem;
-  font-weight:700;
-  margin-bottom:.3rem;
-}
-.testi-stat p{
-  color:rgba(255,255,255,.5);
-  font-size:.82rem;
-}
-.testi-stat-divider{
-  width:1px;
-  height:50px;
-  background:rgba(0,194,224,.2);
-}
-
-/* Mobile */
-@media(max-width:768px){
-  .testi-grid{grid-template-columns:1fr;}
-  .testi-stats{flex-wrap:wrap;gap:1.5rem;}
-  .testi-stat-divider{display:none;}
-}
 /* ===== INSTAGRAM ===== */
 #instagram{background:var(--light);}
 .insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:2.5rem;}
@@ -1233,14 +853,138 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
   .nav-links{display:none!important;}
   .hamburger{display:flex!important;}
 }
-@media(max-width:500px){
-  .ro-products-grid{grid-template-columns:1fr!important;}
-  .hero-stats{grid-template-columns:1fr!important;}
+/* ===== PORTRAIT IMAGE FIX ===== */
+img{object-fit:cover;object-position:center top;}
+.about-img img,.redox-img img{width:100%;height:420px;border-radius:16px;object-fit:cover;object-position:center top;}
+
+/* ===== HERO RIGHT CARD ===== */
+.hero-right-card{background:rgba(7,24,40,.9);border:1px solid rgba(0,194,224,.25);border-radius:22px;padding:1.8rem;backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,.4);width:100%;position:relative;}
+.hero-right-card::before{content:'';position:absolute;inset:-1px;border-radius:22px;background:linear-gradient(135deg,rgba(0,194,224,.3),transparent 50%,rgba(0,194,224,.15));z-index:-1;pointer-events:none;}
+.hrc-header{display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;}
+.hrc-icon{width:42px;height:42px;background:rgba(0,194,224,.12);border:1px solid rgba(0,194,224,.3);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1.1rem;flex-shrink:0;}
+.hrc-title{font-family:'Rajdhani',sans-serif;color:#fff;font-size:1.1rem;font-weight:700;}
+.hrc-sub{color:rgba(255,255,255,.4);font-size:.72rem;margin-top:.1rem;}
+.hrc-live{margin-left:auto;display:flex;align-items:center;gap:.4rem;background:rgba(0,194,224,.1);border:1px solid rgba(0,194,224,.2);padding:.3rem .7rem;border-radius:20px;color:var(--cyan);font-size:.72rem;font-weight:600;}
+.hrc-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite;}
+.hrc-services{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.4rem;}
+.hrc-service{display:flex;align-items:center;gap:.8rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:.75rem 1rem;transition:.25s;}
+.hrc-service:hover{border-color:rgba(0,194,224,.3);background:rgba(0,194,224,.07);}
+.hrc-svc-icon{width:36px;height:36px;background:rgba(0,194,224,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:.9rem;flex-shrink:0;}
+.hrc-svc-info{flex:1;}
+.hrc-svc-info strong{display:block;color:#fff;font-size:.85rem;font-weight:600;}
+.hrc-svc-info span{color:rgba(255,255,255,.4);font-size:.72rem;}
+.hrc-svc-badge{background:rgba(0,194,224,.12);border:1px solid rgba(0,194,224,.2);color:var(--cyan);font-size:.65rem;padding:.2rem .5rem;border-radius:6px;white-space:nowrap;font-weight:600;}
+.hrc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.2rem;padding:.9rem;background:rgba(255,255,255,.03);border-radius:12px;border:1px solid rgba(255,255,255,.06);}
+.hrc-stat{text-align:center;}
+.hrc-stat strong{display:block;font-family:'Rajdhani',sans-serif;font-size:1.6rem;color:var(--cyan);text-shadow:0 0 20px rgba(0,194,224,.4);}
+.hrc-stat span{font-size:.7rem;color:rgba(255,255,255,.4);}
+.hrc-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,var(--cyan),#0099b8);color:#fff;padding:.8rem;border-radius:12px;text-decoration:none;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.5px;transition:.25s;}
+.hrc-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,194,224,.4);}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials{background:linear-gradient(135deg,#f0fafd 0%,#e8f4f8 100%);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.testi-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.6rem;position:relative;transition:.3s;box-shadow:0 4px 20px rgba(0,0,0,.05);}
+.testi-card:hover{transform:translateY(-4px);border-color:rgba(0,194,224,.3);box-shadow:0 12px 40px rgba(0,194,224,.12);}
+.testi-featured{background:linear-gradient(135deg,#071828,#0a2540);border-color:rgba(0,194,224,.3);}
+.testi-featured .testi-stars{color:#ffd700;}
+.testi-featured .testi-text{color:rgba(255,255,255,.8);}
+.testi-featured strong{color:#fff!important;}
+.testi-featured span{color:rgba(255,255,255,.4)!important;}
+.testi-quote-icon{color:rgba(0,194,224,.2);font-size:2.5rem;margin-bottom:.5rem;}
+.testi-stars{color:#ffa500;font-size:1rem;margin-bottom:.8rem;letter-spacing:2px;}
+.testi-text{color:var(--gray);font-size:.87rem;line-height:1.75;margin-bottom:1.2rem;font-style:italic;}
+.testi-footer{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),#0099b8);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;flex-shrink:0;}
+.testi-footer strong{display:block;color:var(--blue);font-size:.87rem;}
+.testi-footer span{color:var(--gray);font-size:.75rem;}
+.testi-tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,194,224,.08);border:1px solid rgba(0,194,224,.2);color:var(--teal);font-size:.72rem;padding:.2rem .65rem;border-radius:20px;}
+.testi-tag i{font-size:.7rem;}
+
+/* ===== GOOGLE REVIEWS ===== */
+#google-reviews{background:#fff;padding:5rem 0;}
+.gr-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2.5rem;flex-wrap:wrap;gap:2rem;}
+.gr-score-box{background:linear-gradient(135deg,#071828,#0a2540);border:1px solid rgba(0,194,224,.2);border-radius:20px;padding:1.8rem 2.5rem;text-align:center;min-width:200px;}
+.gr-score{font-family:'Rajdhani',sans-serif;font-size:3.5rem;color:var(--cyan);font-weight:700;line-height:1;}
+.gr-stars-row{color:#ffd700;font-size:1.2rem;letter-spacing:3px;margin:.4rem 0;}
+.gr-count{color:rgba(255,255,255,.5);font-size:.78rem;margin-bottom:1rem;}
+.gr-btn{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,194,224,.15);border:1px solid rgba(0,194,224,.3);color:var(--cyan);padding:.5rem 1.1rem;border-radius:8px;text-decoration:none;font-size:.82rem;font-weight:600;transition:.2s;}
+.gr-btn:hover{background:var(--cyan);color:#fff;}
+.gr-bars{max-width:400px;margin-bottom:3rem;}
+.gr-bar-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem;font-size:.82rem;color:var(--gray);}
+.gr-bar-row span:first-child{width:30px;text-align:right;}
+.gr-bar-track{flex:1;height:8px;background:var(--light);border-radius:4px;overflow:hidden;}
+.gr-bar-fill{height:100%;background:linear-gradient(90deg,#ffd700,#ffa500);border-radius:4px;}
+.gr-bar-row span:last-child{width:35px;color:var(--blue);font-weight:600;}
+.gr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.gr-card{background:var(--light);border:1px solid var(--border);border-radius:14px;padding:1.4rem;transition:.25s;}
+.gr-card:hover{border-color:rgba(0,194,224,.3);box-shadow:0 8px 30px rgba(0,194,224,.1);}
+.gr-card-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;}
+.gr-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),#0099b8);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;flex-shrink:0;}
+.gr-card-top strong{display:block;color:var(--blue);font-size:.85rem;}
+.gr-card-top span{color:var(--gray);font-size:.72rem;}
+.gr-g-logo{margin-left:auto;color:#4285f4;font-size:1.2rem;}
+.gr-card-stars{color:#ffd700;font-size:.85rem;margin-bottom:.6rem;}
+.gr-card p{color:var(--gray);font-size:.82rem;line-height:1.65;font-style:italic;}
+
+/* ===== CASE STUDIES ===== */
+#case-studies{background:linear-gradient(135deg,#071828 0%,#0a2540 100%);padding:5rem 0;}
+#case-studies .section-tag{background:rgba(0,194,224,.15);color:var(--cyan);}
+#case-studies .section-title{color:#fff;}
+#case-studies .section-sub{color:rgba(255,255,255,.5);}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem;}
+.cs-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,194,224,.15);border-radius:18px;overflow:hidden;transition:.3s;}
+.cs-card:hover{transform:translateY(-5px);border-color:rgba(0,194,224,.4);box-shadow:0 20px 50px rgba(0,0,0,.3);}
+.cs-img-wrap{position:relative;height:200px;overflow:hidden;}
+.cs-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:.4s;}
+.cs-card:hover .cs-img-wrap img{transform:scale(1.05);}
+.cs-badge{position:absolute;top:1rem;left:1rem;background:var(--cyan);color:#fff;font-size:.72rem;font-weight:700;padding:.3rem .75rem;border-radius:20px;letter-spacing:.5px;}
+.cs-body{padding:1.4rem;}
+.cs-tag{font-size:.72rem;color:rgba(0,194,224,.7);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.5rem;}
+.cs-body h4{color:#fff;font-size:1.05rem;margin-bottom:.7rem;font-family:'Rajdhani',sans-serif;}
+.cs-body p{color:rgba(255,255,255,.5);font-size:.82rem;line-height:1.7;margin-bottom:1.1rem;}
+.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;}
+.cs-stat{background:rgba(0,194,224,.08);border:1px solid rgba(0,194,224,.15);border-radius:10px;padding:.6rem;text-align:center;}
+.cs-stat strong{display:block;color:var(--cyan);font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;}
+.cs-stat span{color:rgba(255,255,255,.4);font-size:.68rem;}
+
+/* ===== LEAD CAPTURE ===== */
+#lead{padding:0;}
+.lead-wrap{background:linear-gradient(135deg,var(--cyan) 0%,#0099b8 50%,#006080 100%);position:relative;overflow:hidden;}
+.lead-bg{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.lead-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:5rem 2rem;max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+.lead-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.2);color:#fff;padding:.3rem .9rem;border-radius:20px;font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.2rem;}
+.lead-left h2{color:#fff;font-size:2.4rem;margin-bottom:1rem;line-height:1.2;}
+.lead-left p{color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem;}
+.lead-perks{display:flex;flex-direction:column;gap:.6rem;}
+.lead-perk{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.9);font-size:.88rem;}
+.lead-perk i{color:rgba(255,255,255,.7);font-size:.85rem;}
+.lead-form-box{background:#fff;border-radius:20px;padding:2.2rem;box-shadow:0 20px 60px rgba(0,0,0,.2);}
+.lead-form-box h3{color:var(--blue);font-size:1.4rem;margin-bottom:1.4rem;font-family:'Rajdhani',sans-serif;}
+.lead-field{margin-bottom:1rem;}
+.lead-field input,.lead-field select{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--blue);outline:none;transition:.2s;background:#fff;}
+.lead-field input:focus,.lead-field select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,194,224,.1);}
+.lead-submit{width:100%;background:linear-gradient(135deg,var(--cyan),#0099b8);color:#fff;border:none;padding:.9rem;border-radius:12px;font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:.25s;display:flex;align-items:center;justify-content:center;gap:.6rem;}
+.lead-submit:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,194,224,.4);}
+.lead-note{text-align:center;font-size:.75rem;color:var(--gray);margin-top:.8rem;}
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float{position:fixed;bottom:30px;right:30px;z-index:999;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 6px 25px rgba(37,211,102,.5);text-decoration:none;transition:.3s;animation:waPulse 2s infinite;}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 10px 35px rgba(37,211,102,.6);}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.5)}50%{box-shadow:0 6px 40px rgba(37,211,102,.8)}}
+.wa-tooltip{position:absolute;right:70px;background:#333;color:#fff;font-size:.75rem;padding:.35rem .7rem;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s;}
+.wa-float:hover .wa-tooltip{opacity:1;}
+
+@media(max-width:900px){
+  .testi-grid,.gr-cards,.cs-grid{grid-template-columns:1fr!important;}
+  .lead-inner{grid-template-columns:1fr!important;}
+  .gr-header{flex-direction:column;}
 }
 </style>
 </head>
 <body>
-    <!-- LOADER -->
+
+<!-- LOADER -->
 <div id="loader">
   <div class="loader-icon">💧</div>
   <div class="loader-logo">B <span>SQUARE</span> Hydro Tech</div>
@@ -1269,7 +1013,7 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
         <div class="wp-feat"><i class="fas fa-map-marker-alt"></i> Serving South India</div>
       </div>
       <button class="wp-btn" onclick="closeWelcome()"><i class="fas fa-droplet"></i> EXPLORE OUR SOLUTIONS</button>
-      <p class="wp-note">📞 6381664878 &nbsp;|&nbsp; 9841672605 &nbsp;|&nbsp; Chennai, Tamil Nadu</p>
+      <p class="wp-note">📞 7871020333 &nbsp;|&nbsp; 6381664878 &nbsp;|&nbsp; Chennai, Tamil Nadu</p>
     </div>
   </div>
 </div>
@@ -1314,7 +1058,7 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
 <div class="overlay" id="overlay" onclick="closeMobile()"></div>
 <div class="mobile-menu" id="mobile-menu">
   <button class="close-btn" onclick="closeMobile()"><i class="fas fa-times"></i></button>
-  <div class="mob-logo"><img src="images/2341a8e0-65f6-4d54-98bf-02a1a90fac47.jpg" alt="B Square Hydro Tech" style="height:40px;width:auto;"/></div>
+  <div class="mob-logo"><img src="images/2341a8e0-65f6-4d54-98bf-02a1a90fac47.png" alt="B Square Hydro Tech" style="height:40px;width:auto;"/></div>
   <a href="#home" onclick="closeMobile()"><i class="fas fa-home"></i> Home</a>
   <a href="#about" onclick="closeMobile()"><i class="fas fa-info-circle"></i> About</a>
   <!-- Products Accordion -->
@@ -1328,7 +1072,6 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
       <a href="#our-products" onclick="closeMobile();openProductPopup('softener')"><i class="fas fa-tint"></i> Water Softener</a>
       <a href="#our-products" onclick="closeMobile();openProductPopup('etp')"><i class="fas fa-industry"></i> ETP & STP</a>
       <a href="#our-products" onclick="closeMobile();openProductPopup('chlorinator')"><i class="fas fa-bolt"></i> Electro Chlorinator</a>
-      <a href="#ro-purifier" onclick="closeMobile()"><i class="fas fa-water"></i> RO Purifier</a>
     </div>
   </div>
   <a href="#redox" onclick="closeMobile()"><i class="fas fa-flask"></i> Technology</a>
@@ -1337,7 +1080,6 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
   <a href="#contact" onclick="closeMobile()"><i class="fas fa-phone"></i> Contact</a>
   <a href="#quote" onclick="closeMobile()" class="mob-cta"><i class="fas fa-file-alt"></i> Get Quote</a>
 </div>
-
 <!-- HERO -->
 <section id="home">
   <!-- Floating particles -->
@@ -1365,32 +1107,57 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
         <span class="line1">Chennai's #1 Choice for</span>
         Pure <span>Hydro</span> Technology
       </h1>
-      <p>Chemical-free, eco-friendly water purification for homes and industries. From RO systems to industrial ETP — we deliver safe, clean water across South India.</p>
+      <p>Chemical-free, eco-friendly water purification for homes and industries. From industrial ETP to advanced filtration systems — we deliver safe, clean water across South India.</p>
       <div class="hero-btns">
         <a href="#about" class="btn-primary"><i class="fas fa-droplet"></i> Who We Are</a>
         <a href="#redox" class="btn-outline"><i class="fas fa-flask"></i> See Technology</a>
       </div>
       <div class="hero-stats">
-        <div class="h-stat"><strong>500+</strong><span>Systems Installed</span></div>
+        <div class="h-stat"><strong>100+</strong><span>Systems Installed</span></div>
         <div class="h-stat"><strong>24/7</strong><span>Technical Support</span></div>
         <div class="h-stat"><strong>99%</strong><span>Scale Reduction</span></div>
       </div>
     </div>
+    <!-- RIGHT: Service Highlights -->
     <div class="hero-img-wrap">
-      <div class="hero-card-wrap">
-        <div class="hero-card">
-          <div class="hero-card-title">LIVE WATER MONITOR</div>
-          <div class="metric-row"><span class="metric-label">pH Level</span><span class="metric-val">7.4 <span class="metric-badge">Optimal</span></span></div>
-          <div class="metric-row"><span class="metric-label">TDS (ppm)</span><span class="metric-val" id="m-tds">450 <span class="metric-badge">Safe</span></span></div>
-          <div class="metric-row"><span class="metric-label">Turbidity (NTU)</span><span class="metric-val" id="m-turb">3.1 <span class="metric-badge">Clear</span></span></div>
-          <div class="metric-row"><span class="metric-label">ORP (mV)</span><span class="metric-val" id="m-orp">680 <span class="metric-badge">Active</span></span></div>
-          <div class="metric-row"><span class="metric-label">Hardness (ppm)</span><span class="metric-val">450 <span class="metric-badge">Treated</span></span></div>
+      <div class="hero-right-card">
+        <div class="hrc-header">
+          <div class="hrc-icon"><i class="fas fa-droplet"></i></div>
+          <div><div class="hrc-title">Our Core Services</div><div class="hrc-sub">Trusted Across South India</div></div>
+          <div class="hrc-live"><span class="hrc-dot"></span>Active</div>
         </div>
+        <div class="hrc-services">
+          <div class="hrc-service">
+            <div class="hrc-svc-icon"><i class="fas fa-industry"></i></div>
+            <div class="hrc-svc-info"><strong>Scale Remover</strong><span>Chemical-free descaling for pipes & boilers</span></div>
+            <div class="hrc-svc-badge">Popular</div>
+          </div>
+          <div class="hrc-service">
+            <div class="hrc-svc-icon"><i class="fas fa-tint"></i></div>
+            <div class="hrc-svc-info"><strong>Water Softener</strong><span>Eliminates hardness from borewell water</span></div>
+            <div class="hrc-svc-badge">Best Seller</div>
+          </div>
+          <div class="hrc-service">
+            <div class="hrc-svc-icon"><i class="fas fa-recycle"></i></div>
+            <div class="hrc-svc-info"><strong>ETP & STP</strong><span>Industrial effluent & sewage treatment</span></div>
+            <div class="hrc-svc-badge">Industrial</div>
+          </div>
+          <div class="hrc-service">
+            <div class="hrc-svc-icon"><i class="fas fa-bolt"></i></div>
+            <div class="hrc-svc-info"><strong>Electro Chlorinator</strong><span>On-site chlorine generation</span></div>
+            <div class="hrc-svc-badge">Advanced</div>
+          </div>
+        </div>
+        <div class="hrc-stats">
+          <div class="hrc-stat"><strong>100+</strong><span>Installations</span></div>
+          <div class="hrc-stat"><strong>99%</strong><span>Client Satisfaction</span></div>
+          <div class="hrc-stat"><strong>3+</strong><span>Years Experience</span></div>
+        </div>
+        <a href="#quote" class="hrc-cta"><i class="fas fa-paper-plane"></i> Get Free Quote Today</a>
       </div>
     </div>
   </div>
 </section>
-
 <!-- ABOUT / WHO WE ARE -->
 <section id="about">
   <div class="container">
@@ -1399,7 +1166,7 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
     <p class="section-sub">B SQUARE Hydro Tech is a pioneer in water solution technologies providing comprehensive systems for clean, safe water.</p>
     <div class="about-grid">
       <div class="about-img">
-        <img src="images/d2f22ddb-c133-4015-88fe-3e985e40ef02.jpg" alt="Water Treatment"/>
+        <img src="images/a433c14f-d50e-44d7-ab5a-13804a9d0f3f.jpg" alt="Water Treatment"/>
         <div class="about-badge">B <span>SQUARE</span> Hydro Tech</div>
       </div>
       <div>
@@ -1487,7 +1254,6 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
     </div>
   </div>
 </section>
-
 <!-- VISUAL DIAGNOSIS -->
 <section id="diagnosis">
   <div class="container">
@@ -1690,6 +1456,7 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
 </section>
 
 
+
 <!-- TECHNICAL MANUAL -->
 <section id="manual">
   <div class="container">
@@ -1734,7 +1501,6 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
     </div>
   </div>
 </section>
-
 <!-- OUR PRODUCTS WITH POPUPS -->
 <section id="our-products">
   <div class="container">
@@ -1913,202 +1679,7 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
     </div>
   </div>
 </div>
-<!-- PRODUCT COMPARISON TABLE -->
-<section id="comparison">
-  <div class="container">
-    <div class="section-tag" style="background:rgba(0,194,224,.1);">Compare Products</div>
-    <h2 class="section-title">Find Your Perfect Solution</h2>
-    <p class="section-sub">Compare our water treatment products side by side to choose the best fit for your needs.</p>
 
-    <!-- Filter Tabs -->
-    <div class="comp-tabs">
-      <button class="comp-tab active" onclick="filterComp('all')">All Products</button>
-      <button class="comp-tab" onclick="filterComp('home')">Home Use</button>
-      <button class="comp-tab" onclick="filterComp('commercial')">Commercial</button>
-      <button class="comp-tab" onclick="filterComp('industrial')">Industrial</button>
-    </div>
-
-    <!-- Table Wrapper -->
-    <div class="comp-table-wrap">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th class="comp-feature-col">Features</th>
-            <th>
-              <div class="comp-th-inner">
-                <div class="comp-th-icon">🔧</div>
-                <div class="comp-th-name">Scale Remover</div>
-                
-                <div class="comp-th-tag home">Home</div>
-              </div>
-            </th>
-            <th>
-              <div class="comp-th-inner">
-                <div class="comp-th-icon">🌊</div>
-                <div class="comp-th-name">Water Softener</div>
-                
-                <div class="comp-th-tag home">Home</div>
-              </div>
-            </th>
-            <th class="comp-highlight-col">
-              <div class="comp-popular-badge">⭐ Popular</div>
-              <div class="comp-th-inner">
-                <div class="comp-th-icon">💧</div>
-                <div class="comp-th-name">RO Purifier</div>
-                
-                <div class="comp-th-tag home">Home</div>
-              </div>
-            </th>
-            <th>
-              <div class="comp-th-inner">
-                <div class="comp-th-icon">⚡</div>
-                <div class="comp-th-name">Electro Chlorinator</div>
-                
-                <div class="comp-th-tag commercial">Commercial</div>
-              </div>
-            </th>
-            <th>
-              <div class="comp-th-inner">
-                <div class="comp-th-icon">🏭</div>
-                <div class="comp-th-name">ETP / STP Plant</div>
-                <div class="comp-th-price">Custom</div>
-                <div class="comp-th-tag industrial">Industrial</div>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="comp-feature-col"><i class="fas fa-tint"></i> Water Type</td>
-            <td>Hard Water</td>
-            <td>Hard Water</td>
-            <td class="comp-highlight-col">Any Water</td>
-            <td>Any Water</td>
-            <td>Waste Water</td>
-          </tr>
-          <tr class="comp-row-alt">
-            <td class="comp-feature-col"><i class="fas fa-flask"></i> Chemical Free</td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td class="comp-highlight-col"><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-          </tr>
-          <tr>
-            <td class="comp-feature-col"><i class="fas fa-home"></i> Best For</td>
-            <td>Home / Office</td>
-            <td>Home / Hotel</td>
-            <td class="comp-highlight-col">Home / Office</td>
-            <td>Hotel / Hospital</td>
-            <td>Industry / Factory</td>
-          </tr>
-          <tr class="comp-row-alt">
-            <td class="comp-feature-col"><i class="fas fa-bolt"></i> Power Usage</td>
-            <td>15–45W</td>
-            <td>Low</td>
-            <td class="comp-highlight-col">22–40W</td>
-            <td>300–5000W</td>
-            <td>500W–100kW</td>
-          </tr>
-          <tr>
-            <td class="comp-feature-col"><i class="fas fa-shield-alt"></i> Removes Hardness</td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td class="comp-highlight-col"><span class="comp-partial">~ Partial</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-          </tr>
-          <tr class="comp-row-alt">
-            <td class="comp-feature-col"><i class="fas fa-bacteria"></i> Kills Bacteria</td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td class="comp-highlight-col"><span class="comp-yes">✓ UV/UF</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-          </tr>
-          <tr>
-            <td class="comp-feature-col"><i class="fas fa-gem"></i> Mineral Retention</td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-            <td class="comp-highlight-col"><span class="comp-yes">✓ Alkaline+</span></td>
-            <td><span class="comp-partial">~ Partial</span></td>
-            <td><span class="comp-yes">✓ Yes</span></td>
-          </tr>
-          <tr class="comp-row-alt">
-            <td class="comp-feature-col"><i class="fas fa-tools"></i> Maintenance</td>
-            <td>Minimal</td>
-            <td>Salt Refill</td>
-            <td class="comp-highlight-col">Annual Filter</td>
-            <td>Quarterly</td>
-            <td>Regular AMC</td>
-          </tr>
-          <tr>
-            <td class="comp-feature-col"><i class="fas fa-certificate"></i> Warranty</td>
-            <td>2 Years</td>
-            <td>1 Year</td>
-            <td class="comp-highlight-col">1–3 Years</td>
-            <td>2 Years</td>
-            <td>Custom</td>
-          </tr>
-          <tr class="comp-row-alt">
-            <td class="comp-feature-col"><i class="fas fa-star"></i> Rating</td>
-            <td>
-              <div class="comp-rating">
-                <span class="comp-stars">★★★★★</span> 4.8
-              </div>
-            </td>
-            <td>
-              <div class="comp-rating">
-                <span class="comp-stars">★★★★☆</span> 4.8
-              </div>
-            </td>
-            <td class="comp-highlight-col">
-              <div class="comp-rating">
-                <span class="comp-stars">★★★★★</span> 4.9
-              </div>
-            </td>
-            <td>
-              <div class="comp-rating">
-                <span class="comp-stars">★★★★☆</span> 4.8
-              </div>
-            </td>
-            <td>
-              <div class="comp-rating">
-                <span class="comp-stars">★★★★★</span> 4.9
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="comp-feature-col"></td>
-            <td>
-              <button class="comp-quote-btn" onclick="openProductPopup('scaleremover')">Learn More</button>
-            </td>
-            <td>
-              <button class="comp-quote-btn" onclick="openProductPopup('softener')">Learn More</button>
-            </td>
-            <td class="comp-highlight-col">
-              <button class="comp-quote-btn comp-quote-btn-highlight" onclick="openROPage()">View Models</button>
-            </td>
-            <td>
-              <button class="comp-quote-btn" onclick="openProductPopup('chlorinator')">Learn More</button>
-            </td>
-            <td>
-              <button class="comp-quote-btn" onclick="openProductPopup('etp')">Learn More</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Legend -->
-    <div class="comp-legend">
-      <span><span class="comp-yes">✓</span> Available</span>
-      <span><span class="comp-partial">~</span> Partial</span>
-      <span><span class="comp-no">✗</span> Not Available</span>
-    </div>
-
-  </div>
-</section>
 <!-- LIVE SIMULATION -->
 <section id="simulation">
   <div class="container">
@@ -2163,98 +1734,16 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
           <div class="redox-step"><div class="redox-step-num">3</div><div class="redox-step-info"><h5>Permanent Softening</h5><p>Unlike ion exchange, our process permanently alters the mineral structure, preventing scale formation on all surfaces.</p></div></div>
           <div class="redox-step"><div class="redox-step-num">4</div><div class="redox-step-info"><h5>Less Monitoring</h5><p>A long-lasting system designed for continuous service with significantly less monitoring than traditional chemical plants.</p></div></div>
         </div>
-        <a href="new (1).pdf" target="_blank" class="redox-download"><i class="fas fa-file-pdf"></i> Download Brochure</a>
+        <a href="images/new (1).pdf" target="_blank" class="redox-download"><i class="fas fa-file-pdf"></i> Download Brochure</a>
       </div>
       <div class="redox-img">
-        <img src="images/b4026a10-9eed-4050-9a82-bd9a573c193d.jpg" alt="REDOX Technology"/>
+        <img src="images/d446f311-15bc-4762-9f6e-35cffdedf442.jpg" alt="REDOX Technology"/>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RO PURIFIER -->
-<section id="ro-purifier">
-  <div class="container">
-    <div class="section-tag" style="background:rgba(0,194,224,.1);">RO Water Purifier</div>
-    <h2 class="section-title">B Square Hydro Tech RO Purifiers</h2>
-    <p class="section-sub">Advanced purification delivering pure, mineral-rich, and healthy drinking water with RO + Alkaline technology.</p>
-    <div class="ro-intro">
-      <div class="ro-text">
-        <p>B Square Hydro Tech provides advanced water purification solutions designed to deliver pure, mineral-rich, and healthy drinking water. Our systems utilize high-performance RO + Alkaline technology to ensure optimal pH balance and removal of harmful impurities.</p>
-        <div class="ro-highlights">
-          <div class="ro-hl"><div class="ro-hl-icon"><i class="fas fa-shield-alt"></i></div><div class="ro-hl-text"><h5>Advanced Protection</h5><p>RO+UV+UF technology protects your family from water-borne diseases.</p></div></div>
-          <div class="ro-hl"><div class="ro-hl-icon"><i class="fas fa-gem"></i></div><div class="ro-hl-text"><h5>Mineral Retention</h5><p>Sleek+ and Smart+ models infuse water with Copper and Alkaline minerals.</p></div></div>
-          <div class="ro-hl"><div class="ro-hl-icon"><i class="fas fa-rupee-sign"></i></div><div class="ro-hl-text"><h5>Wholesale Value</h5><p>Premium technology from ₹14,990 (Dew) to ₹31,990 (Smart+).</p></div></div>
-        </div>
-        <div class="ro-stages">
-          <h4>7-Stage Purification</h4>
-          <div class="ro-stage-flow">
-            <div class="ro-stage">Pre-Filter</div><span class="ro-stage-arrow">→</span>
-            <div class="ro-stage">RO Membrane</div><span class="ro-stage-arrow">→</span>
-            <div class="ro-stage">Alkaline</div><span class="ro-stage-arrow">→</span>
-            <div class="ro-stage">UV/UF</div>
-          </div>
-        </div>
-        <button class="ro-btn" onclick="openROPage()"><i class="fas fa-th"></i> View All 18 RO Products</button>
-      </div>
-      <div class="ro-intro-img-wrap">
-        <img src="images/5fef8aea-417a-4ea1-a4c0-2e9b6607dc33.jpg" alt="RO Purifier" class="ro-intro-img"/>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- RO PRODUCTS PAGE (Full Screen) -->
-<div id="ro-page">
-  <div class="ro-page-nav">
-    <div class="logo">B <span>SQUARE</span> RO Purifiers</div>
-    <button class="ro-page-close" onclick="closeROPage()"><i class="fas fa-arrow-left"></i> Back to Website</button>
-  </div>
-  <div class="ro-page-inner">
-    <h2>Our Complete RO Product Range</h2>
-    <p class="sub">18 models from residential to commercial — all with advanced purification technology</p>
-    <div class="ro-products-grid" id="ro-products-grid"></div>
-  </div>
-</div>
-<!-- WATER SCIENCE -->
-<section id="water-science">
-  <div class="container">
-    <div class="section-tag">Water Science</div>
-    <h2 class="section-title">The Foundation of a Healthy Life</h2>
-    <p class="section-sub">Water makes up over 70% of the human body. Mineral-balanced drinking water supports overall hydration and health.</p>
-    <div class="ws-grid">
-      <div>
-        <div class="ws-ph-bar">
-          <h4>pH Optimization Range</h4>
-          <div class="ph-track">
-            <div class="ph-seg" style="width:30%;background:#c0392b;">Acidic 0–6.9</div>
-            <div class="ph-seg" style="width:10%;background:#27ae60;">7.0</div>
-            <div class="ph-seg" style="width:40%;background:#0a2540;">7.2–8.5 ✓</div>
-            <div class="ph-seg" style="width:20%;background:#7f8c8d;">8.6–14</div>
-          </div>
-          <div class="ph-labels"><span>0</span><span>7</span><span>8.5</span><span>14</span></div>
-          <p style="font-size:.78rem;color:var(--gray);margin-top:.7rem;">Our systems maintain water in the healthy 7.2–8.5 range for enhanced taste and hydration.</p>
-        </div>
-        <div class="ws-stats">
-          <div class="ws-stat"><strong>100–300</strong><span>Optimal TDS (ppm)</span></div>
-          <div class="ws-stat"><strong>7.2–8.5</strong><span>Target pH Range</span></div>
-          <div class="ws-stat"><strong>680 mV</strong><span>ORP Level</span></div>
-          <div class="ws-stat"><strong>&lt;5 NTU</strong><span>Turbidity Target</span></div>
-        </div>
-      </div>
-      <div class="ws-body-chart">
-        <h4>Water Distribution in the Human Body</h4>
-        <div class="body-part"><span class="body-part-name">Brain</span><div class="body-bar-wrap"><div class="body-bar" style="width:75%"></div></div><span class="body-pct">75%</span></div>
-        <div class="body-part"><span class="body-part-name">Heart</span><div class="body-bar-wrap"><div class="body-bar" style="width:73%"></div></div><span class="body-pct">73%</span></div>
-        <div class="body-part"><span class="body-part-name">Muscles</span><div class="body-bar-wrap"><div class="body-bar" style="width:79%"></div></div><span class="body-pct">79%</span></div>
-        <div class="body-part"><span class="body-part-name">Kidneys</span><div class="body-bar-wrap"><div class="body-bar" style="width:83%"></div></div><span class="body-pct">83%</span></div>
-        <div class="body-part"><span class="body-part-name">Liver</span><div class="body-bar-wrap"><div class="body-bar" style="width:70%"></div></div><span class="body-pct">70%</span></div>
-        <div class="body-part"><span class="body-part-name">Bones</span><div class="body-bar-wrap"><div class="body-bar" style="width:22%"></div></div><span class="body-pct">22%</span></div>
-        <p style="font-size:.78rem;color:var(--gray);margin-top:1rem;">Clean, mineral-balanced water is essential for every organ to function optimally.</p>
-      </div>
-    </div>
-  </div>
-</section>
 <!-- PROFESSIONAL SOLUTIONS -->
 <section id="pro-solutions">
   <div class="container">
@@ -2362,139 +1851,6 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
 
      
 </section>
-<!-- CUSTOMER REVIEWS / TESTIMONIALS -->
-<section id="testimonials">
-  <div class="container">
-    <div class="section-tag" style="background:rgba(0,194,224,.1);">Customer Reviews</div>
-    <h2 class="section-title">What Our Customers Say</h2>
-    <p class="section-sub">Real experiences from real customers across Tamil Nadu and beyond.</p>
-
-    <div class="testi-grid">
-
-      <div class="testi-card">
-        <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testi-text">B Square Hydro Tech's Scale Remover completely changed our life. No more white deposits on taps and geysers. Installation was quick and the team was professional.</p>
-        <div class="testi-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <div class="testi-author">
-          <div class="testi-avatar">RK</div>
-          <div class="testi-info">
-            <h5>Ramesh Kumar</h5>
-            <span>Homeowner, Chennai</span>
-          </div>
-          <div class="testi-badge"><i class="fas fa-check-circle"></i> Verified</div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testi-text">We installed their RO purifier Smart+ model in our office. Water quality is excellent and the TDS monitoring feature is very useful. Highly recommend!</p>
-        <div class="testi-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <div class="testi-author">
-          <div class="testi-avatar">PS</div>
-          <div class="testi-info">
-            <h5>Priya Suresh</h5>
-            <span>Business Owner, Coimbatore</span>
-          </div>
-          <div class="testi-badge"><i class="fas fa-check-circle"></i> Verified</div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testi-text">Our factory water problem is solved with their ETP plant. The team understood our requirements perfectly and delivered on time. Excellent after-sales support too.</p>
-        <div class="testi-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="testi-author">
-          <div class="testi-avatar">MV</div>
-          <div class="testi-info">
-            <h5>Murugan Vel</h5>
-            <span>Factory Manager, Erode</span>
-          </div>
-          <div class="testi-badge"><i class="fas fa-check-circle"></i> Verified</div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testi-text">Water softener from B Square is working great. Our washing machine and geyser are lasting much longer now. Chemical-free solution is a big plus for us.</p>
-        <div class="testi-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <div class="testi-author">
-          <div class="testi-avatar">AL</div>
-          <div class="testi-info">
-            <h5>Anitha Lakshmi</h5>
-            <span>Homeowner, Madurai</span>
-          </div>
-          <div class="testi-badge"><i class="fas fa-check-circle"></i> Verified</div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testi-text">Best investment for our hotel. The Electro Chlorinator ensures safe water for all our guests. Zero maintenance headache and excellent technical support from the team.</p>
-        <div class="testi-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <div class="testi-author">
-          <div class="testi-avatar">SK</div>
-          <div class="testi-info">
-            <h5>Senthil Kumar</h5>
-            <span>Hotel Manager, Trichy</span>
-          </div>
-          <div class="testi-badge"><i class="fas fa-check-circle"></i> Verified</div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testi-text">Galaxy model RO purifier with alkaline filter is amazing. Water tastes so fresh and pure. My family's health has improved since we started using it. Thank you B Square!</p>
-        <div class="testi-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <div class="testi-author">
-          <div class="testi-avatar">DN</div>
-          <div class="testi-info">
-            <h5>Deepa Nair</h5>
-            <span>Homeowner, Salem</span>
-          </div>
-          <div class="testi-badge"><i class="fas fa-check-circle"></i> Verified</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Stats bar -->
-    <div class="testi-stats">
-      <div class="testi-stat">
-        <h3>500+</h3>
-        <p>Happy Customers</p>
-      </div>
-      <div class="testi-stat-divider"></div>
-      <div class="testi-stat">
-        <h3>4.9★</h3>
-        <p>Average Rating</p>
-      </div>
-      <div class="testi-stat-divider"></div>
-      <div class="testi-stat">
-        <h3>100%</h3>
-        <p>Verified Reviews</p>
-      </div>
-      <div class="testi-stat-divider"></div>
-      <div class="testi-stat">
-        <h3>6+</h3>
-        <p>Years Experience</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- INSTAGRAM -->
 <section id="instagram">
   <div class="container">
@@ -2508,11 +1864,11 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
       <div class="insta-card"><img src="images/a3633d1b-efde-4429-b714-44e0f9bc3943.jpg" alt=""/><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
       <div class="insta-card"><img src="images/ac4432b1-3946-4f4f-a6ba-df30b23d951d.jpg" alt=""/><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
       <div class="insta-card"><img src="images/67fbc21b-4870-4210-977e-aa8f21c8af64.jpg" alt=""/><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
-      <div class="insta-card"><img src="images/5fef8aea-417a-4ea1-a4c0-2e9b6607dc33.jpg" alt=""/><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-card"><img src="images/d446f311-15bc-4762-9f6e-35cffdedf442.jpg" alt=""/><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
       <div class="insta-card"><img src="images/d2f22ddb-c133-4015-88fe-3e985e40ef02.jpg" alt=""/><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
     </div>
     <div class="insta-cta">
-      <a href="https://instagram.com" target="_blank" class="insta-follow-btn"><i class="fab fa-instagram"></i> Follow @bsquare_hydrotech</a>
+      <a href="https://instagram.com/bsquare_hydrotech" target="_blank" class="insta-follow-btn"><i class="fab fa-instagram"></i> Follow @bsquare_hydrotech</a>
     </div>
   </div>
 </section>
@@ -2595,68 +1951,164 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
     <div class="section-tag">Get in Touch</div>
     <h2 class="section-title">Contact Us</h2>
     <p class="section-sub">Have questions about our products or services? Our team is here to help.</p>
-    
     <div class="contact-grid">
       <div class="contact-info">
-        <div class="ci-item">
-          <div class="ci-icon"><i class="fas fa-phone"></i></div>
-          <div class="ci-text">
-            <h5>Phone</h5>
-            <p><a href="tel:7871020333">7871020333</a></p>
-          </div>
-        </div>
-
-        <div class="ci-item">
-          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
-          <div class="ci-text">
-            <h5>Email</h5>
-            <p><a href="mailto:bsquarehydrotech@gmail.com">bsquarehydrotech@gmail.com</a></p>
-          </div>
-        </div>
-
-        <div class="ci-item">
-          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="ci-text">
-            <h5>Address</h5>
-            <p>No-4, Punithavathi Colony Main Road, 4th Cross Street, Gowrivakkam, Chennai – 600073</p>
-          </div>
-        </div>
-
-        <div class="ci-item">
-          <div class="ci-icon"><i class="fas fa-clock"></i></div>
-          <div class="ci-text">
-            <h5>Office Hours</h5>
-            <p>Mon – Fri: 9:00 AM – 6:00 PM<br/>Saturday: 10:00 AM – 4:00 PM<br/>Sunday: Closed</p>
-          </div>
-        </div>
-
-        <div style="margin-top: 1rem;">
+        <div class="ci-item"><div class="ci-icon"><i class="fas fa-phone"></i></div><div class="ci-text"><h5>Phone</h5><p><a href="tel:7871020333">7871020333</a> | <a href="tel:6381664878">6381664878</a></p></div></div>
+        <div class="ci-item"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div class="ci-text"><h5>Email</h5><a href="mailto:bsquarehydrotech@gmail.com">bsquarehydrotech@gmail.com</a></div></div>
+        <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div class="ci-text"><h5>Address</h5><p>No-4, Punithavathi Colony Main Road, 4th Cross Street, Gowrivakkam, Chennai – 600073</p></div></div>
+        <div class="ci-item"><div class="ci-icon"><i class="fas fa-clock"></i></div><div class="ci-text"><h5>Office Hours</h5><p>Mon – Fri: 9:00 AM – 6:00 PM<br/>Saturday: 10:00 AM – 4:00 PM<br/>Sunday: Closed</p></div></div>
+        <div>
           <div class="ci-text" style="margin-left:.5rem;margin-bottom:.5rem;"><h5>Follow Us</h5></div>
           <div class="contact-social">
-            <a href="https://wa.me/917871020333" target="_blank" class="social-btn" style="color:#25d366;">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://instagram.com/bsquare_hydrotech" target="_blank" class="social-btn" style="color:#e1306c;">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" class="social-btn" style="color:#1877f2;">
-              <i class="fab fa-facebook"></i>
-            </a>
+            <a href="https://wa.me/917871020333" target="_blank" class="social-btn" style="color:#25d366;"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/bsquare_hydrotech" target="_blank" class="social-btn" style="color:#e1306c;"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-btn" style="color:#1877f2;"><i class="fab fa-facebook"></i></a>
           </div>
         </div>
       </div>
-
       <div class="map-wrap">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.3582496739345!2d80.1614761!3d12.9168128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525e540b5c729f%3A0x4848f9fb89c76cf!2sGowrivakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.835!2d80.2004!3d12.9234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU1JzI0LjIiTiA4MMKwMTInMDEuNCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </div>
 </section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-tag">Client Stories</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-sub">Real experiences from industries, hotels & homeowners across South India.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Our cooling tower was scaling every 3 months. After B Square installed their Scale Remover, we've had zero scaling for over a year. Maintenance cost dropped by 70%."</p>
+        <div class="testi-footer"><div class="testi-avatar">RK</div><div><strong>Rajesh Kumar</strong><span>Plant Manager, Textile Industry — Coimbatore</span></div></div>
+        <div class="testi-tag"><i class="fas fa-industry"></i> Industrial</div>
+      </div>
+      <div class="testi-card testi-featured">
+        <div class="testi-quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"We installed B Square's Water Softener for our 80-room hotel. Guests now praise the water quality. Our geysers and pipes are completely scale-free. Professional team."</p>
+        <div class="testi-footer"><div class="testi-avatar">SM</div><div><strong>Suresh Menon</strong><span>General Manager, Heritage Hotel — Chennai</span></div></div>
+        <div class="testi-tag"><i class="fas fa-hotel"></i> Hospitality</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The ETP system designed by B Square helped us achieve zero liquid discharge compliance. Engineers were knowledgeable and installation completed on schedule."</p>
+        <div class="testi-footer"><div class="testi-avatar">AP</div><div><strong>Anitha Priya</strong><span>Operations Head, Pharma Company — Chennai</span></div></div>
+        <div class="testi-tag"><i class="fas fa-flask"></i> Pharmaceutical</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Borewell water at our apartment was causing skin issues. B Square's system solved it completely. Water is now soft, clean, and our appliances last longer."</p>
+        <div class="testi-footer"><div class="testi-avatar">VN</div><div><strong>Vijay Narayanan</strong><span>Resident, Apartment Complex — Tambaram</span></div></div>
+        <div class="testi-tag"><i class="fas fa-home"></i> Residential</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Our hospital needed reliable water treatment. B Square delivered a customised STP solution meeting all regulatory norms. 24/7 support gives us complete peace of mind."</p>
+        <div class="testi-footer"><div class="testi-avatar">DR</div><div><strong>Dr. Ramesh</strong><span>Administrator, Multi-Specialty Hospital — Madurai</span></div></div>
+        <div class="testi-tag"><i class="fas fa-hospital"></i> Healthcare</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"TDS dropped from 1800 to under 400 ppm. Boiler efficiency improved by 30%. Quick installation, professional team, and the product works exactly as promised."</p>
+        <div class="testi-footer"><div class="testi-avatar">KS</div><div><strong>Karthik Sundar</strong><span>Factory Owner, Food Processing — Salem</span></div></div>
+        <div class="testi-tag"><i class="fas fa-cogs"></i> Manufacturing</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- GOOGLE REVIEWS -->
+<section id="google-reviews">
+  <div class="container">
+    <div class="gr-header">
+      <div>
+        <div class="section-tag">Google Reviews</div>
+        <h2 class="section-title">Rated 4.9 on Google</h2>
+        <p class="section-sub">Trusted by 200+ verified customers across South India.</p>
+      </div>
+      <div class="gr-score-box">
+        <div class="gr-score">4.9</div>
+        <div class="gr-stars-row">★★★★★</div>
+        <div class="gr-count">200+ Reviews</div>
+        <a href="https://g.page/bsquarehydrotech" target="_blank" class="gr-btn"><i class="fab fa-google"></i> View on Google</a>
+      </div>
+    </div>
+    <div class="gr-bars">
+      <div class="gr-bar-row"><span>5 ★</span><div class="gr-bar-track"><div class="gr-bar-fill" style="width:87%"></div></div><span>87%</span></div>
+      <div class="gr-bar-row"><span>4 ★</span><div class="gr-bar-track"><div class="gr-bar-fill" style="width:9%"></div></div><span>9%</span></div>
+      <div class="gr-bar-row"><span>3 ★</span><div class="gr-bar-track"><div class="gr-bar-fill" style="width:3%"></div></div><span>3%</span></div>
+      <div class="gr-bar-row"><span>2 ★</span><div class="gr-bar-track"><div class="gr-bar-fill" style="width:1%"></div></div><span>1%</span></div>
+      <div class="gr-bar-row"><span>1 ★</span><div class="gr-bar-track"><div class="gr-bar-fill" style="width:0%"></div></div><span>0%</span></div>
+    </div>
+    <div class="gr-cards">
+      <div class="gr-card"><div class="gr-card-top"><div class="gr-avatar">MK</div><div><strong>Muthu Kumar</strong><span>2 weeks ago</span></div><div class="gr-g-logo"><i class="fab fa-google"></i></div></div><div class="gr-card-stars">★★★★★</div><p>"Excellent service! Team came on time, explained everything clearly and installed the system professionally. Water quality improved drastically. Very satisfied."</p></div>
+      <div class="gr-card"><div class="gr-card-top"><div class="gr-avatar">PL</div><div><strong>Priya Lakshmi</strong><span>1 month ago</span></div><div class="gr-g-logo"><i class="fab fa-google"></i></div></div><div class="gr-card-stars">★★★★★</div><p>"Best water treatment company in Chennai. Our apartment hard water problem is completely solved. Very knowledgeable team and reasonable price."</p></div>
+      <div class="gr-card"><div class="gr-card-top"><div class="gr-avatar">SR</div><div><strong>Siva Raman</strong><span>3 weeks ago</span></div><div class="gr-g-logo"><i class="fab fa-google"></i></div></div><div class="gr-card-stars">★★★★★</div><p>"Installed Scale Remover for our factory. Chemical costs dropped to zero and no more pipe blockages. B Square team is professional and very responsive."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="case-studies">
+  <div class="container">
+    <div class="section-tag">Success Stories</div>
+    <h2 class="section-title">Real Results, Real Impact</h2>
+    <p class="section-sub">Documented transformations from our installations across South India.</p>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-img-wrap"><img src="images/377b7d61-74ad-4253-bbbc-b7637d204d6b.jpg" alt="Textile Factory"/><div class="cs-badge">Scale Remover</div></div>
+        <div class="cs-body"><div class="cs-tag">Textile Industry — Coimbatore</div><h4>70% Reduction in Maintenance Cost</h4><p>A 500-loom textile unit spending ₹80,000/month on chemical descaling. After Scale Remover installation, descaling cost dropped to zero and boiler efficiency improved by 35%.</p><div class="cs-stats"><div class="cs-stat"><strong>₹9.6L</strong><span>Annual Savings</span></div><div class="cs-stat"><strong>35%</strong><span>Efficiency Gain</span></div><div class="cs-stat"><strong>Zero</strong><span>Chemical Use</span></div></div></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-img-wrap"><img src="images/e20ffc28-c485-45ab-a494-584b71880e47.jpg" alt="Hotel"/><div class="cs-badge">Water Softener</div></div>
+        <div class="cs-body"><div class="cs-tag">Hotel Chain — Chennai</div><h4>Guest Satisfaction Improved by 40%</h4><p>An 80-room hotel chain facing constant hard water complaints. Water Softener installation transformed guest experience and reduced housekeeping chemical use by 60%.</p><div class="cs-stats"><div class="cs-stat"><strong>60%</strong><span>Less Chemicals</span></div><div class="cs-stat"><strong>40%</strong><span>Better Reviews</span></div><div class="cs-stat"><strong>Zero</strong><span>Breakdowns</span></div></div></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-img-wrap"><img src="images/eefcbbeb-0ba5-42e6-812e-f62fd76465a3.jpg" alt="Pharma ETP"/><div class="cs-badge">ETP System</div></div>
+        <div class="cs-body"><div class="cs-tag">Pharma Plant — Chennai</div><h4>Zero Liquid Discharge Achieved</h4><p>A pharmaceutical company needed CPCB compliance in 3 months. B Square commissioned a 50 KLD ETP system on time, achieving 99% effluent treatment.</p><div class="cs-stats"><div class="cs-stat"><strong>99%</strong><span>COD Reduction</span></div><div class="cs-stat"><strong>3 Mo.</strong><span>Delivery</span></div><div class="cs-stat"><strong>100%</strong><span>Compliance</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD CAPTURE -->
+<section id="lead">
+  <div class="lead-wrap">
+    <div class="lead-bg"></div>
+    <div class="lead-inner">
+      <div class="lead-left">
+        <div class="lead-tag"><i class="fas fa-bolt"></i> Free Consultation</div>
+        <h2>Get Your Free Water Quality Report</h2>
+        <p>Our experts will analyze your water source, test TDS and hardness levels, and recommend the best solution — completely free.</p>
+        <div class="lead-perks">
+          <div class="lead-perk"><i class="fas fa-check-circle"></i> Free on-site water testing</div>
+          <div class="lead-perk"><i class="fas fa-check-circle"></i> Custom solution recommendation</div>
+          <div class="lead-perk"><i class="fas fa-check-circle"></i> ROI & cost saving estimate</div>
+          <div class="lead-perk"><i class="fas fa-check-circle"></i> No obligation quote</div>
+        </div>
+      </div>
+      <div class="lead-form-box">
+        <h3>Book Free Consultation</h3>
+        <div class="lead-field"><input type="text" placeholder="Your Full Name" id="lead-name"/></div>
+        <div class="lead-field"><input type="tel" placeholder="Phone Number" id="lead-phone"/></div>
+        <div class="lead-field"><input type="text" placeholder="Your Area / City" id="lead-area"/></div>
+        <div class="lead-field"><select id="lead-type"><option value="">Water Source Type</option><option>Borewell</option><option>Corporation Water</option><option>Tank Water</option><option>Industrial Effluent</option></select></div>
+        <button class="lead-submit" onclick="submitLead()"><i class="fas fa-paper-plane"></i> Get Free Report</button>
+        <p class="lead-note">📞 We'll call you within 2 hours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/917871020333?text=Hi%20B%20Square%20Hydro%20Tech!%20I%20need%20water%20treatment%20assistance." target="_blank" class="wa-float">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -2670,10 +2122,10 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
         <h5>Quick Links</h5>
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#product-line">Products</a>
         <a href="#roi">ROI Calculator</a>
         <a href="#quote">Get Quote</a>
-        <a href="#ro-purifier" onclick="openROPage()">RO Purifier</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#case-studies">Case Studies</a>
       </div>
       <div class="footer-col">
         <h5>Industrial Solutions</h5>
@@ -2686,6 +2138,7 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
         <h5>Contact</h5>
         <a href="tel:7871020333">📞 7871020333</a>
         <a href="tel:6381664878">📞 6381664878</a>
+        
         <a href="mailto:bsquarehydrotech@gmail.com">✉️ bsquarehydrotech@gmail.com</a>
         <a href="#">📍 Gowrivakkam, Chennai 600073</a>
       </div>
@@ -2698,9 +2151,8 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
     </div>
   </div>
 </footer>
-
 <script>
-    // ===== LOADER =====
+// ===== LOADER =====
 (function(){
   const loader = document.getElementById('loader');
   const pct = document.getElementById('loader-msg');
@@ -2715,7 +2167,7 @@ footer{background:var(--dark);padding:3rem 0 1.5rem;}
       setTimeout(()=>{
         document.getElementById('welcome-popup').classList.add('show');
       },350);
-    },1800);
+    },800);
   });
 })();
 
@@ -2776,102 +2228,8 @@ function closeProductPopup(id){
   document.body.style.overflow='';
 }
 document.querySelectorAll('.prod-popup').forEach(p=>{
-  p.addEventListener('click',e=>{
-    if(e.target===p){
-      const id=p.id.replace('popup-','');
-      closeProductPopup(id);
-    }
-  });
+  p.addEventListener('click',e=>{if(e.target===p){const id=p.id.replace('popup-','');closeProductPopup(id);}});
 });
-
-(function(){
-  window.filterComp = function(type, event){ // event parameter add pannirukken
-    // 1. Tab active state update
-    document.querySelectorAll('.comp-tab').forEach(t => t.classList.remove('active'));
-    if(event) event.target.classList.add('active');
-
-    // 2. Table rows and columns handle pannuvom
-    const table = document.querySelector('.comp-table');
-    const rows = table.querySelectorAll('tr');
-    
-    // Header cells-ah base panni entha index hide pannanum nu mudivu pannuvom
-    const headerCells = rows[0].cells;
-
-    // Loop through columns (starting from index 1 to skip the first label column)
-    for (let i = 1; i < headerCells.length; i++) {
-      const tag = headerCells[i].querySelector('.comp-th-tag');
-      const colType = tag ? tag.className.replace('comp-th-tag ', '').trim() : '';
-      
-      const show = (type === 'all' || colType === type);
-
-      // Oru oru row-layum antha specific column index-ah hide/show pannuvom
-      rows.forEach(row => {
-        if (row.cells[i]) {
-          row.cells[i].style.display = show ? '' : 'none';
-        }
-      });
-    }
-  };
-})();
-
-// ===== RO PRODUCTS PAGE =====
-const roProducts=[
-  {name:'Dew',price:'₹14,990',tag:'Entry Level',desc:'Entry-level 7-stage RO purification. Ideal for small families.',specs:{Stages:'7',Capacity:'8 L/hr','Tank Size':'7 Litres','TDS Range':'Up to 1500 ppm',Technology:'RO + UV + UF',Power:'24W','Membrane':'75 GPD Filmtec',Warranty:'1 Year'}},
-  {name:'Ultra',price:'₹16,990',tag:'High TDS',desc:'Enhanced filtration with improved membrane for high TDS water.',specs:{Stages:'8',Capacity:'10 L/hr','Tank Size':'8 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + UF + TDS',Power:'24W','Membrane':'100 GPD',Warranty:'1 Year'}},
-  {name:'Sleek',price:'₹18,990',tag:'Wall Mount',desc:'Slim wall-mount design with 8-stage purification. Space-saving.',specs:{Stages:'8',Capacity:'10 L/hr','Tank Size':'7 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + MTDS',Power:'25W','Membrane':'100 GPD Slim',Warranty:'1 Year'}},
-  {name:'Sleek+',price:'₹20,990',tag:'Copper+',desc:'Sleek model with added Copper mineralizer for antibacterial benefits.',specs:{Stages:'9',Capacity:'10 L/hr','Tank Size':'8 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + Copper',Power:'25W','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Galaxy',price:'₹22,990',tag:'Alkaline',desc:'Advanced 9-stage with alkaline filter. Premium taste and mineral balance.',specs:{Stages:'9',Capacity:'12 L/hr','Tank Size':'9 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + Alkaline',Power:'30W','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Galaxy Ozo',price:'₹24,990',tag:'Ozone',desc:'Galaxy with built-in ozone generator for extra disinfection.',specs:{Stages:'10',Capacity:'12 L/hr','Tank Size':'9 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + Alkaline + Ozone',Power:'32W','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Natural',price:'₹22,990',tag:'Mineral+',desc:'Natural mineral infusion technology. Retains healthy minerals.',specs:{Stages:'9',Capacity:'12 L/hr','Tank Size':'9 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + Mineral Infusion',Power:'28W','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Natural Ozo',price:'₹25,990',tag:'Ozone+',desc:'Natural series with ozone technology for enhanced microbial protection.',specs:{Stages:'10',Capacity:'12 L/hr','Tank Size':'9 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + Mineral + Ozone',Power:'32W','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Smart',price:'₹26,990',tag:'Digital',desc:'Smart purifier with digital TDS display and filter life indicator.',specs:{Stages:'9',Capacity:'15 L/hr','Tank Size':'10 Litres','TDS Range':'Up to 2500 ppm',Technology:'RO + UV + Smart Sensor',Power:'35W','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Smart+',price:'₹31,990',tag:'Top Model',desc:'Top-of-line model with Copper+Alkaline+UV. Real-time monitoring.',specs:{Stages:'12',Capacity:'15 L/hr','Tank Size':'12 Litres','TDS Range':'Up to 3000 ppm',Technology:'RO + UV + Cu + Alkaline + IoT',Power:'40W','Membrane':'150 GPD',Warranty:'3 Years'}},
-  {name:'Marine (Undersink)',price:'₹23,990',tag:'Undersink',desc:'Under-counter installation for clean kitchens. High-flow compact design.',specs:{Stages:'7',Capacity:'12 L/hr','Tank Size':'6 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UF + UV Inline',Power:'24W','Membrane':'100 GPD',Warranty:'1 Year'}},
-  {name:'Marine Hot 2in1',price:'₹27,990',tag:'Hot+Cold',desc:'Undersink purifier with instant hot & cold water dispenser.',specs:{Stages:'8',Capacity:'12 L/hr','Tank Size':'6L + 1L Hot','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + Hot Dispenser',Power:'600W (heater)','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Marino (Undersink)',price:'₹24,990',tag:'Premium Sink',desc:'Premium undersink model with alkaline mineral cartridge.',specs:{Stages:'9',Capacity:'14 L/hr','Tank Size':'8 Litres','TDS Range':'Up to 2500 ppm',Technology:'RO + UV + Alkaline',Power:'28W','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Marino Hot 2in1',price:'₹29,990',tag:'Touchpad',desc:'Marino series with integrated hot water dispenser. Touchpad control.',specs:{Stages:'9',Capacity:'14 L/hr','Tank Size':'8L + 1L Hot','TDS Range':'Up to 2500 ppm',Technology:'RO + UV + Alkaline + Hot',Power:'650W (heater)','Membrane':'100 GPD',Warranty:'2 Years'}},
-  {name:'Conditioner',price:'₹18,990',tag:'Whole Home',desc:'Whole-home water conditioner for hard water treatment.',specs:{Stages:'5',Capacity:'1000 L/hr','Tank Size':'—','TDS Range':'Any',Technology:'Electronic Descaler',Power:'45W','Membrane':'N/A',Warranty:'2 Years'}},
-  {name:'Crystal',price:'₹20,990',tag:'Multi-Stage',desc:'Crystal-clear water with advanced multi-stage sediment and carbon filtration.',specs:{Stages:'8',Capacity:'10 L/hr','Tank Size':'8 Litres','TDS Range':'Up to 2000 ppm',Technology:'RO + UV + Carbon',Power:'24W','Membrane':'100 GPD',Warranty:'1 Year'}},
-  {name:'Crystal Filter',price:'₹16,990',tag:'Easy Maint.',desc:'Crystal line with replaceable filter pack system. Easy maintenance.',specs:{Stages:'7',Capacity:'8 L/hr','Tank Size':'7 Litres','TDS Range':'Up to 1800 ppm',Technology:'RO + UV (Filter Pack)',Power:'22W','Membrane':'75 GPD',Warranty:'1 Year'}},
-  {name:'Pre-Filter',price:'₹5,990',tag:'Whole House',desc:'Whole-house sediment pre-filter. Protects all downstream appliances.',specs:{Stages:'3',Capacity:'2000 L/hr','Tank Size':'—','TDS Range':'Any',Technology:'Sediment + Carbon + PP',Power:'0W (No Pump)','Membrane':'N/A',Warranty:'1 Year'}},
-];
-const imgs=[
-  '',
-  
-];
-function openROPage(){
-  const grid=document.getElementById('ro-products-grid');
-  if(!grid.innerHTML){
-    grid.innerHTML=roProducts.map((p,i)=>`
-      <div class="ro-prod-card">
-        <div class="ro-prod-card-img">
-          <img src="${imgs[i%imgs.length]}" alt="${p.name}" loading="lazy"/>
-          <div class="ro-prod-tag">${p.tag}</div>
-        </div>
-        <div class="ro-prod-card-body">
-          <div class="ro-prod-header">
-            <h4>${p.name}</h4>
-            <div class="ro-prod-price">${p.price}</div>
-          </div>
-          <p>${p.desc}</p>
-          <div class="ro-prod-specs">
-            ${Object.entries(p.specs).map(([k,v]) => `
-              <div class="ro-spec-row"><span class="ro-spec-key">${k}</span><span class="ro-spec-val">${v}</span></div>
-            `).join('')}
-          </div>
-          <button class="ro-prod-btn" onclick="closeMobile && closeMobile()"><i class="fas fa-phone"></i> Get Quote</button>
-        </div>
-      </div>`).join('');
-  }
-  document.getElementById('ro-page').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-function closeROPage(){
-  document.getElementById('ro-page').classList.remove('show');
-  document.body.style.overflow='';
-}
-
-
 
 // ===== LIVE SIMULATION =====
 function animateSim(){
@@ -2882,6 +2240,7 @@ function animateSim(){
   document.getElementById('sim-orp').textContent=Math.round(670+Math.random()*20);
 }
 setInterval(animateSim,2500);
+
 // ===== QUOTE SUBMIT =====
 function submitQuote(){
   alert('Thank you! Your quote request has been submitted. Our team will contact you within 24 hours.\n\nFor immediate assistance:\n📞 6381664878 | 9841672605');
@@ -2925,27 +2284,16 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
 });
-// ===== TESTIMONIALS ANIMATION =====
-(function(){
-  const testiCards = document.querySelectorAll('.testi-card');
-  const testiObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if(entry.isIntersecting){
-        setTimeout(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }, i * 100);
-      }
-    });
-  }, {threshold: 0.1});
 
-  testiCards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity .5s ease, transform .5s ease, border-color .3s, background .3s, box-shadow .3s';
-    testiObserver.observe(card);
-  });
-})();
+// ===== LEAD SUBMIT =====
+function submitLead(){
+  var name = document.getElementById('lead-name').value.trim();
+  var phone = document.getElementById('lead-phone').value.trim();
+  if(!name || !phone){ alert('Please enter your name and phone number.'); return; }
+  var msg = 'Hi B Square Hydro Tech! I need a free water quality consultation.%0AName: ' + encodeURIComponent(name) + '%0APhone: ' + encodeURIComponent(phone) + '%0AArea: ' + encodeURIComponent(document.getElementById('lead-area').value) + '%0AWater Source: ' + encodeURIComponent(document.getElementById('lead-type').value);
+  window.open('https://wa.me/917871020333?text=' + msg, '_blank');
+}
+
 // ===== SCROLL ANIMATIONS =====
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
@@ -2954,7 +2302,6 @@ document.querySelectorAll('.core-card,.why-card,.aqua-card,.exp-card,.faq-item,.
   el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease,transform .5s ease';
   observer.observe(el);
 });
-
 </script>
 </body>
 </html>
